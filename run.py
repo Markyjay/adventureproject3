@@ -2,6 +2,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 import time
+import os
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -26,6 +28,8 @@ goright_cell = story.acell('E1').value
 
 
 print("Would you like to start your adventure? (y/n): ")
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def get_name():
     while True:
@@ -70,7 +74,9 @@ def start_adventure():
                 print("Sorry, you've run out of attempts. The room remains locked.")
                 break
 
-    print(realization_cell)   
+    clear_screen()
+    print(realization_cell) 
+      
 
 start_choice = input().lower()
 
