@@ -20,7 +20,8 @@ story = SHEET.worksheet('story1')
 
 introduction_cell = story.acell('A1').value
 escape_code_cell = story.acell('A2').value
-realization_cell = story.acell('A3').value
+escape_holding_cell = story.acell('A3').value
+realization_cell = story.acell('A4').value
 goback_cell = story.acell('B1').value
 goforward_cell = story.acell('C1').value
 goleft_cell = story.acell('D1').value
@@ -28,6 +29,7 @@ goright_cell = story.acell('E1').value
 
 
 print("Would you like to start your adventure? (y/n): ")
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -72,11 +74,22 @@ def start_adventure():
                 print(f"Incorrect code. You have {code_attempts} attempts left.")
             else:
                 print("Sorry, you've run out of attempts. The room remains locked.")
-                break
+                retry = input("Do you want to retry? (y/n): ").lower()
+                if retry == "y":
+                    start_adventure()
+                elif retry == "n": 
+                    print("That's too bad, maybe another time")
+                else:
+                    print("Incorrect input try again")
+                    retry = input("Do you want to retry? (y/n): ").lower()
+                return
+               
 
     clear_screen()
+    print(escape_holding_cell)
+    time.sleep(3)
     print(realization_cell) 
-      
+
 
 start_choice = input().lower()
 
