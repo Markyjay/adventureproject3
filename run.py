@@ -51,7 +51,28 @@ fence_opening_cell = story.acell('E4').value
 cold_death_cell = story.acell('E5').value
 racoon_scare_cell = story.acell('E6').value
 move_on2_cell = story.acell('E7').value
+inside_gate_cell = story.acell('E8').value
 car_death2_cell = story.acell('F1').value
+gun_death1_cell = story.acell('F2').value
+bridge_jump_cell = story.acell('F3').value
+car_death3_cell = story.acell('F4').value
+weapon_cell = story.acell('F5').value
+hide2_cell = story.acell('F6').value
+retrieve_knife_cell = story.acell('F7').value
+move_on_cell = story.acell('F8').value
+wait_cell = story.acell('G1').value
+retreat_cell = story.acell('G2').value
+climb_down_cell = story.acell('G3').value
+skip_yard_cell = story.acell('G4').value
+car_death4_cell = story.acell('G5').value
+forest2_cell = story.acell('G6').value
+car_engine_cell = story.acell('G7').value
+turnback_cell = story.acell('G8').value
+car_death5_cell = story.acell('H1').value
+creep_cell = story.acell('H2').value
+hunters_cell = story.acell('H3').value
+victory_cell = story.acell('H4').value
+go4_exit_cell = story.acell('H5').value
 
 
 
@@ -115,6 +136,7 @@ def start_adventure():
     print(escape_holding_cell)
     time.sleep(2)
     print(realization_cell) 
+    
     while True:
         choice = input("Type 'c' to continue or 'x' to exit: ").lower()
         if choice == 'c':
@@ -130,6 +152,17 @@ def start_adventure():
                         if choice_1_a == '1':
                             clear_screen()
                             print(downhill_cell)
+                            while True:
+                                choice_2_a = input("Type 't' to tend wound or 'w' to limp your way to the water: ").lower()
+                                if choice_2_a == 't':
+                                    clear_screen()
+                                    print(tend_wound_cell)
+                                elif choice_2_a == 'w':
+                                    clear_screen()
+                                    print(no_tend_wound_cell)
+                                else: 
+                                    print("Invalid input. Please type 'f' to go forward or 'l' to go to the river: ")
+                                
                         elif choice_1_a == '2':
                             clear_screen()
                             print(light_cell)
