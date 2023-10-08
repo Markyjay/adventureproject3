@@ -37,6 +37,7 @@ light_cell = story.acell('C4').value
 car_death1_cell = story.acell('C5').value
 inside_truck_cell = story.acell('C6').value
 gun_death2_cell = story.acell('C7').value
+exit_cell = story.acell('C8').value
 initial_gate_cell = story.acell('D1').value
 pass_gate_cell = story.acell('D2').value
 forest_cell = story.acell('D3').value
@@ -199,6 +200,37 @@ def start_adventure():
                                                                     print(bridge_jump_cell)
                                                                     while True:
                                                                         choice_6_a = input("Type 'j' to jeer your assailant or 'r' to run for safety: ").lower()
+                                                                        if choice_6_a == 'j':
+                                                                            clear_screen()
+                                                                            print(jeer_cell)
+                                                                            while True:
+                                                                                start_again = input("Type 's' to return to the beginning and try a different path.").lower()
+                                                                                if start_again == 's':
+                                                                                    start_adventure()
+                                                                                else: 
+                                                                                    print("Invalid input. Type 's' to return to the beginning.")
+                                                                                return
+                                                                        elif choice_6_a == 'r':
+                                                                            clear_screen()
+                                                                            print(exit_cell)
+                                                                            while True:
+                                                                                choice_7_a = input("Type 's' to head straight for exit or 'c' to creep along treeline: ").lower()
+                                                                                if choice_7_a == 's':
+                                                                                    clear_screen()
+                                                                                    print(go4_exit_cell)
+                                                                                    while True:
+                                                                                        start_again = input("Type 's' to return to the beginning and try a different path.").lower()
+                                                                                        if start_again == 's':
+                                                                                            start_adventure()
+                                                                                        else: 
+                                                                                            print("Invalid input. Type 's' to return to the beginning.")
+                                                                                        return
+                                                                                elif choice_7_a == 'c':
+                                                                                    clear_screen()
+                                                                                    print(creep_cell)
+                                                                                else: 
+                                                                                    print("Invalid input. Type 'b' to turn back or 'j' to attempt jump.")
+                                                                                return   
 
                                                                 else: 
                                                                     print("Invalid input. Type 'b' to turn back or 'j' to attempt jump.")
