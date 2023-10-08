@@ -44,6 +44,7 @@ hide2_cell = story.acell('D4').value
 hide_in_truck_cell = story.acell('D5').value
 death1_cell = story.acell('D6').value
 truck_pass_cell = story.acell('D7').value
+jeer_cell = story.acell('D8').value
 no_tend_wound_cell = story.acell('E1').value
 bridge_cell = story.acell('E2').value
 rock_cell = story.acell('E3').value
@@ -163,7 +164,51 @@ def start_adventure():
                                             clear_screen()
                                             print(hide_cell)
                                             while True:
-                                                choice_4_a = input()
+                                                choice_4_a = input("Type 's' to stay or 'r' to run: ").lower()
+                                                if choice_4_a == 's':
+                                                    clear_screen()
+                                                    print(car_death2_cell)
+                                                    while True:
+                                                        start_again = input("Type 's' to return to the beginning and try a different path.").lower()
+                                                        if start_again == 's':
+                                                            start_adventure()
+                                                        else: 
+                                                            print("Invalid input. Type 's' to return to the beginning.")
+                                                        return
+                                                elif choice_4_a == 'r':
+                                                    clear_screen()
+                                                    print(ignore_cell)
+                                                    while True:
+                                                        continue_forward = input("Type 'c' to continue forward.").lower()
+                                                        if continue_forward == 'c':
+                                                            print(bridge_cell)
+                                                            while True:
+                                                                choice_5_a = input("Type 'b' to turn back or 'j' to attempt jump: ").lower()
+                                                                if choice_5_a = 'b':
+                                                                    clear_screen()
+                                                                    print(gun_death1_cell)
+                                                                    while True:
+                                                                        start_again = input("Type 's' to return to the beginning and try a different path.").lower()
+                                                                        if start_again == 's':
+                                                                            start_adventure()
+                                                                        else: 
+                                                                            print("Invalid input. Type 's' to return to the beginning.")
+                                                                        return
+                                                                elif choice_5_a = 'j':
+                                                                    clear_screen()
+                                                                    print(bridge_jump_cell)
+                                                                    while True:
+                                                                        choice_6_a = input("Type 'j' to jeer your assailant or 'r' to run for safety: ").lower()
+
+                                                                else: 
+                                                                    print("Invalid input. Type 'b' to turn back or 'j' to attempt jump.")
+                                                                return
+                                                        else: 
+                                                            print("Invalid input. Type 'c' to return to the beginning.")
+                                                        return    
+                                                else: 
+                                                    print("Invalid input. Please type 's' to stay or 'r' to run.")
+                                                return
                                         elif choice_3_a =='c':
                                             clear_screen()
                                             print(ignore_cell)
