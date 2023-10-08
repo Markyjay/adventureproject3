@@ -240,8 +240,30 @@ def junction_loop():
                                         elif choice_yb == 'b':
                                             clear_screen()
                                             print(skip_yard_cell)
-                                            
-
+                                            while True:
+                                                choice_fs = input("Type 's' to stay on road or 'f' to go through the forest: ").lower()
+                                                if choice_fs == 'f':
+                                                    clear_screen()
+                                                    print(forest2_cell)
+                                                    while True:
+                                                        choice_ba = input("Type 'a' to look for safer route or 'b' to take the bridge: ").lower()
+                                                        if choice_ba == 'a':
+                                                            clear_screen()
+                                                            print(car_death5_cell)
+                                                            start_again_loop()
+                                                        elif choice_ba == 'b':
+                                                            clear_screen()
+                                                            bridge_loop()
+                                                        else:
+                                                            print("Invalid input. Try again!")
+                                                elif choice_fs == 's':
+                                                    clear_screen()
+                                                    print(car_death4_cell)
+                                                    start_again_loop()
+                                                else:
+                                                    print("Invalid input. Try again!")
+                                        else:
+                                            print("Invalid input. Try again!")
                                 elif choice_cb == 'b':
                                     clear_screen()
                                     print(turnback_cell)
