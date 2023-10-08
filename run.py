@@ -143,7 +143,7 @@ def start_adventure():
             clear_screen()
             print(initial_descision_cell)
             while True:
-                choice_1 = input("Type 'l' to go left toward river, 'f' to go forward or 'r' to go right in to the forest: ").lower() 
+                choice_1 == input("Type 'l' to go left toward river, 'f' to go forward or 'r' to go right in to the forest: ").lower() 
                 if choice_1 == 'l':
                     clear_screen()
                     print(junction_cell)
@@ -157,12 +157,25 @@ def start_adventure():
                                 if choice_2_a == 't':
                                     clear_screen()
                                     print(tend_wound_cell)
+                                    while True:
+                                        choice_3_a = input("Type 'h' to hide or 'c' to ignore and continue: ").lower()
+                                        if choice_3_a =='h':
+                                            clear_screen()
+                                            print(hide_cell)
+                                            while True:
+                                                choice_4_a = input()
+                                        elif choice_3_a =='c':
+                                            clear_screen()
+                                            print(ignore_cell)
+                                        else: 
+                                            print("Invalid input. Please type 'h' to hide or 'c' to ignore and continue.")
+                                        return   
                                 elif choice_2_a == 'w':
                                     clear_screen()
                                     print(no_tend_wound_cell)
                                 else: 
-                                    print("Invalid input. Please type 'f' to go forward or 'l' to go to the river: ")
-                                
+                                    print("Invalid input. Please type 't' tend wound or 'w' to limp your way to the water: ")
+                                return
                         elif choice_1_a == '2':
                             clear_screen()
                             print(light_cell)
@@ -173,7 +186,7 @@ def start_adventure():
                     clear_screen()
                     print(initial_forest_cell)
                     while True:
-                        choice_1_b == input("Type 'f' to go forward or 'b' to go back: ").lower()
+                        choice_1_b = input("Type 'f' to go forward or 'b' to go back: ").lower()
                         if choice_1_b == 'f':
                             clear_screen()
                             print(spikes_cell)
@@ -188,7 +201,7 @@ def start_adventure():
                             clear_screen()
                             print(goback_cell) 
                             while True:
-                                choice_1_ba == input("Type 'f' to go forward or 'l' to go to the river: ").lower()
+                                choice_1_ba = input("Type 'f' to go forward or 'l' to go to the river: ").lower()
                                 if choice_1_ba == 'f':
                                     clear_screen()
                                     print(junction_cell)
@@ -202,7 +215,7 @@ def start_adventure():
                     clear_screen()
                     print(river_cell)
                     while True:
-                        choice_1_c == input("Type 'h' to hide or 'c' to take your chances with the car: ").lower()
+                        choice_1_c = input("Type 'h' to hide or 'c' to take your chances with the car: ").lower()
                         if choice_1_c == 'h':
                             clear_screen()
                             print(hide2_cell)
@@ -234,3 +247,12 @@ elif start_choice == "n":
     print("That's too bad, maybe another time.")
 else:
     print("Invalid choice. Please enter 'y' or 'n'.")
+    retry = input("Do you want to retry? (y/n): ").lower()
+    if retry == "y":
+       start_adventure()
+    elif retry == "n": 
+        print("That's too bad, maybe another time")
+    else:
+        print("Incorrect input try again")
+        retry = input("Do you want to retry? (y/n): ").lower()
+    
