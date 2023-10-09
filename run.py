@@ -61,7 +61,7 @@ gun_death1_cell = story.acell('F2').value
 bridge_jump_cell = story.acell('F3').value
 car_death3_cell = story.acell('F4').value
 weapon_cell = story.acell('F5').value
-hide2_cell = story.acell('F6').value
+hide3_cell = story.acell('F6').value
 retrieve_knife_cell = story.acell('F7').value
 move_on_cell = story.acell('F8').value
 wait_cell = story.acell('G1').value
@@ -116,7 +116,7 @@ def start_adventure():
 
 def start_again_loop():
     while True:
-        start_again = input("Type 's' to return to the beginning and try a different path.").lower()
+        start_again = input("Type 's' to return to the beginning and try a different path: ").lower()
         if start_again == 's':
             clear_screen()
             start_adventure()
@@ -131,7 +131,7 @@ def junction_loop():
             clear_screen()
             print(downhill_cell)
             while True:
-            choice_tw = input("Type 't' to tend wound or 'w' to limp your way to the water: ").lower()
+                choice_tw = input("Type 't' to tend wound or 'w' to limp your way to the water: ").lower()
                 if choice_tw == 't':
                     clear_screen()
                     print(tend_wound_cell)
@@ -182,17 +182,17 @@ def junction_loop():
             clear_screen()
             print(light_cell)
             while True:
-                choice_gr = input("Type 'g' to enter gate or 'r' to pass and continue down the road.").lower()
+                choice_gr = input("Type 'g' to enter gate or 'r' to pass and continue down the road: ").lower()
                 if choice_gr == 'g':
                     clear_screen()
                     print(initial_gate_cell)
                     while True:
-                        choice_la = input("Type 'l' to open lock or 'a' to find another way.").lower()
+                        choice_la = input("Type 'l' to open lock or 'a' to find another way: ").lower()
                         if choice_la == 'l':
                             clear_screen()
                             print(rock_cell)
                             while True:
-                                choice_rc = input("Type 'r' to use rock or 'c' to continue searching.").lower()
+                                choice_rc = input("Type 'r' to use rock or 'c' to continue searching: ").lower()
                                 if choice_rc == 'r':
                                     clear_screen()
                                     fence_opening_loop()
@@ -212,7 +212,7 @@ def junction_loop():
                 else:
                     print("Invalid input. Try again.")
         elif choice_123 == '3':
-            clear_screen
+            clear_screen()
             print(forest_cell)
             while True:
                 choice_iq = input("Type 'i' to investigate or 'q' to move on quickly: ").lower()
@@ -227,54 +227,12 @@ def junction_loop():
                             start_again_loop()
                         elif choice_cm == 'm':
                             clear_screen()
-                            print(move_on_cell)
-                            while True:
-                                choice_cb = input("Type 'c' to climb down cliff to the scrapyard or 'b' to go back").lower()
-                                if choice_cb == 'c':
-                                    clear_screen()
-                                    print (climb_down_cell)
-                                    while True:
-                                        choice_yb = input("Type 'y' enter the yard or 'b' to skip the yard and go to bridge: ").lower()
-                                        if choice_yb == 'y':
-                                            clear_screen()
-                                            fence_opening_loop()
-                                        elif choice_yb == 'b':
-                                            clear_screen()
-                                            print(skip_yard_cell)
-                                            while True:
-                                                choice_fs = input("Type 's' to stay on road or 'f' to go through the forest: ").lower()
-                                                if choice_fs == 'f':
-                                                    clear_screen()
-                                                    print(forest2_cell)
-                                                    while True:
-                                                        choice_ba = input("Type 'a' to look for safer route or 'b' to take the bridge: ").lower()
-                                                        if choice_ba == 'a':
-                                                            clear_screen()
-                                                            print(car_death5_cell)
-                                                            start_again_loop()
-                                                        elif choice_ba == 'b':
-                                                            clear_screen()
-                                                            bridge_loop()
-                                                        else:
-                                                            print("Invalid input. Try again!")
-                                                elif choice_fs == 's':
-                                                    clear_screen()
-                                                    print(car_death4_cell)
-                                                    start_again_loop()
-                                                else:
-                                                    print("Invalid input. Try again!")
-                                        else:
-                                            print("Invalid input. Try again!")
-                                elif choice_cb == 'b':
-                                    clear_screen()
-                                    print(turnback_cell)
-                                else:
-                                    print("Invalid input. Try again!")
+                            move_on_loop()
+                        else:
+                            print("Invalid Input. Try again!")
                 elif choice_iq == 'q':
                     clear_screen()
-                    print(move_on_cell)
-                    while True:
-
+                    move_on_loop()
                 else:
                     print("Invalid Input. Try again!")
         else:
@@ -330,7 +288,7 @@ def bridge_loop():
 def weapon_loop():
     print(weapon_cell)
     while True:
-        choice_we = input("Type 'w' to go for weapon or 'e' to enter RV.").lower()
+        choice_we = input("Type 'w' to go for weapon or 'e' to enter RV: ").lower()
         if choice_we == 'w':
             clear_screen()
             print(baseball_bat_death_cell)
@@ -339,12 +297,12 @@ def weapon_loop():
             clear_screen()
             print(map_find_cell)
             while True:
-                choice_lw = input("Type 'l' to leave now or 'w' to wait and see.").lower()
+                choice_lw = input("Type 'l' to leave now or 'w' to wait and see: ").lower()
                 if choice_lw == 'l':
                     clear_screen()
                     print(leave_yard_cell)
                     while True:
-                        choice_sf = input("Type 's' to stay on road or 'f' to brave the forest.").lower()
+                        choice_sf = input("Type 's' to stay on road or 'f' to brave the forest: ").lower()
                         if choice_sf == 's':
                             clear_screen()
                             print(car_death4_cell)
@@ -353,7 +311,7 @@ def weapon_loop():
                             clear_screen()
                             print(forest2_cell)
                             while True:
-                                choice_ab = input("Type 'a' to find another route or 'b' to take the bridge.").lower()
+                                choice_ab = input("Type 'a' to find another route or 'b' to take the bridge: ").lower()
                                 if choice_ab == 'a':
                                     clear_screen()
                                     print(car_death5_cell)
@@ -377,17 +335,17 @@ def weapon_loop():
 def fence_opening_loop():
     print(fence_opening_cell)
     while True:
-        choice_hw = input("Type 'w' to find a weapon or 'h' to find a hiding spot.").lower()
+        choice_hw = input("Type 'w' to find a weapon or 'h' to find a hiding spot: ").lower()
         if choice_hw == 'w':
             clear_screen()
             print(weapon_cell)
         elif choice_hw == 'h':
             clear_screen()
-            print(hide2_cell)
+            hide_loop()
         else:
             print("Invalid option. Try again.")
 
-def river_loop()
+def river_loop():
     print(river_cell)
     while True:
         choice_hg = input("Type 'h' to hide or 'g' to greet the driver: ").lower()
@@ -460,8 +418,8 @@ def river_loop()
         else:
             print("Invalid input. Try again!")
 
-def hide_loop()
-    print(hide2_cell)
+def hide_loop():
+    print(hide3_cell)
     while True:
         choice_be = ("Type 'b' to go for the barn or 'e' to try the RV: ").lower()
         if choice_be == 'b':
@@ -476,7 +434,7 @@ def hide_loop()
                     clear_screen()
                     print(leave_yard_cell)
                     while True:
-                        choice_sf = input("Type 's' to stay on road or 'f' to brave the forest.").lower()
+                        choice_sf = input("Type 's' to stay on road or 'f' to brave the forest: ").lower()
                         if choice_sf == 's':
                             clear_screen()
                             print(car_death4_cell)
@@ -485,7 +443,7 @@ def hide_loop()
                             clear_screen()
                             print(forest2_cell)
                             while True:
-                                choice_ab = input("Type 'a' to find another route or 'b' to take the bridge.").lower()
+                                choice_ab = input("Type 'a' to find another route or 'b' to take the bridge: ").lower()
                                 if choice_ab == 'a':
                                     clear_screen()
                                     print(car_death5_cell)
@@ -506,6 +464,50 @@ def hide_loop()
         else:
             print("Invalid input. Try again!")
 
+def move_on_loop():
+    print(move_on_cell)
+    while True:
+        choice_cb = input("Type 'c' to climb down cliff to the scrapyard or 'b' to go back: ").lower()
+        if choice_cb == 'c':
+            clear_screen()
+            print (climb_down_cell)
+            while True:
+                choice_yb = input("Type 'y' enter the yard or 'b' to skip the yard and go to bridge: ").lower()
+                if choice_yb == 'y':
+                    clear_screen()
+                    fence_opening_loop()
+                elif choice_yb == 'b':
+                    clear_screen()
+                    print(skip_yard_cell)
+                    while True:
+                        choice_fs = input("Type 's' to stay on road or 'f' to go through the forest: ").lower()
+                        if choice_fs == 'f':
+                            clear_screen()
+                            print(forest2_cell)
+                            while True:
+                                choice_ba = input("Type 'a' to look for safer route or 'b' to take the bridge: ").lower()
+                                if choice_ba == 'a':
+                                    clear_screen()
+                                    print(car_death5_cell)
+                                    start_again_loop()
+                                elif choice_ba == 'b':
+                                    clear_screen()
+                                    bridge_loop()
+                                else:
+                                    print("Invalid input. Try again!")
+                        elif choice_fs == 's':
+                            clear_screen()
+                            print(car_death4_cell)
+                            start_again_loop()
+                        else:
+                            print("Invalid input. Try again!")
+                else:
+                    print("Invalid input. Try again!")
+        elif choice_cb == 'b':
+            clear_screen()
+            print(turnback_cell)
+        else:
+            print("Invalid input. Try again!")
 
 start_choice = input().lower()
 
@@ -523,8 +525,7 @@ else:
         print("That's too bad, maybe another time")
     else:
         print("Incorrect input try again")
-        retry = input("Do you want to retry? (y/n): ").lower()
-
+        
 escape_code = generate_escape_code(player_name)
     
 code_attempts = 3
