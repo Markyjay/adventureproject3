@@ -34,9 +34,6 @@ cell_names = [
 cell_values = {cell_name: story.acell(cell_name).value for cell_name in cell_names}
 
 
-cold_death_cell = story.acell('E5').value
-
-
 print("Would you like to start your adventure? (y/n): ")
 
 
@@ -76,7 +73,7 @@ def start_adventure():
 
 def start_again_loop():
     while True:
-        start_again = input("Type 's' to return to the beginning and try a different path: ").lower()
+        start_again = input("Type 's' to start another path: ").lower()
         if start_again == 's':
             clear_screen()
             start_adventure()
@@ -87,12 +84,12 @@ def start_again_loop():
 def junction_loop():
     print(cell_values['B4'])
     while True:
-        choice_123 = input("Type '1' to take road 1, '2' to take road 2 or '3' to take road 3: ").lower()
+        choice_123 = input("Type '1', '2' or '3': ").lower()
         if choice_123 == '1':
             clear_screen()
             print(cell_values['B3'])
             while True:
-                choice_tw = input("Type 't' to tend wound or 'w' to limp your way to the water: ").lower()
+                choice_tw = input("Type 't' to tend wound or 'w' to limp to the water: ").lower()
                 if choice_tw == 't':
                     clear_screen()
                     print(cell_values['C3'])
@@ -152,6 +149,17 @@ def junction_loop():
                 elif choice_gr == 'r':
                     clear_screen()
                     print(cell_values['D2'])
+                    while True:
+                        choice_gd = input("Type 'g' to go back to gate or 'd' to go further into darkness: ").lower()
+                        if choice_gd == 'g':
+                            clear_screen()
+                            initial_gate_loop()
+                        elif choice_gd == 'd':
+                            clear_screen()
+                            print(cell_values['E5'])
+                            start_again_loop()
+                        else:
+                            print("Invalid input. Try again.")
                 else:
                     print("Invalid input. Try again.")
         elif choice_123 == '3':
@@ -181,28 +189,30 @@ def junction_loop():
         else:
             print("Invalid input. Try again!")
 
+
 def initial_gate_loop():
     print(cell_values['D1'])
-        while True:
-            choice_la = input("Type 'l' to open lock or 'a' to find another way: ").lower()
-            if choice_la == 'l':
-                clear_screen()
-                print(cell_values['E3'])
-                while True:
-                    choice_rc = input("Type 'r' to use rock or 'c' to continue searching: ").lower()
-                    if choice_rc == 'r':
-                        clear_screen()
-                        fence_opening_loop()
-                    elif choice_rc == 'c':
-                        clear_screen()
-                        print(cell_values['F4'])
-                    else:
-                        print("Invalid input. Try again.")
-            elif choice_la == 'a':
-                clear_screen()
-                fence_opening_loop()
-            else:
-                print("Invalid input. Try again.")
+    while True:
+        choice_la = input("Type 'l' to open lock or 'a' to find another way: ").lower()
+        if choice_la == 'l':
+            clear_screen()
+            print(cell_values['E3'])
+            while True:
+                choice_rc = input("Type 'r' to use rock or 'c' to continue searching: ").lower()
+                if choice_rc == 'r':
+                    clear_screen()
+                    fence_opening_loop()
+                elif choice_rc == 'c':
+                    clear_screen()
+                    print(cell_values['F4'])
+                else:
+                    print("Invalid input. Try again.")
+        elif choice_la == 'a':
+            clear_screen()
+            fence_opening_loop()
+        else:
+            print("Invalid input. Try again.")
+
 
 def bridge_loop():
     print(cell_values['E2'])
