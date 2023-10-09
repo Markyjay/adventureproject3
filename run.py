@@ -84,8 +84,10 @@ map_find_cell = story.acell('H8').value
 
 print("Would you like to start your adventure? (y/n): ")
 
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def get_name():
     while True:
@@ -95,6 +97,7 @@ def get_name():
         else:
             print("Invalid name. Please enter only letters for your name.")
 
+
 def generate_escape_code(name):
     name = name.lower()
     last_letter = name[-1]
@@ -103,6 +106,7 @@ def generate_escape_code(name):
     second_letter = alpha_name[1]
     escape_code = f"{last_letter}{num_letters}{second_letter}"
     return escape_code
+
 
 def start_adventure():
     print("\nWelcome to your adventure {}!".format(player_name))
@@ -114,14 +118,16 @@ def start_adventure():
     print(escape_code_cell)
     time.sleep(2)
 
+
 def start_again_loop():
     while True:
         start_again = input("Type 's' to return to the beginning and try a different path: ").lower()
         if start_again == 's':
             clear_screen()
             start_adventure()
-        else: 
+        else:
             print("Invalid input. Try again!")
+
 
 def junction_loop():
     print(junction_cell)
@@ -137,7 +143,7 @@ def junction_loop():
                     print(tend_wound_cell)
                     while True:
                         choice_hc = input("Type 'h' to hide or 'c' to ignore and continue: ").lower()
-                        if choice_hc =='h':
+                        if choice_hc == 'h':
                             clear_screen()
                             print(hide_cell)
                             while True:
@@ -149,7 +155,7 @@ def junction_loop():
                                         start_again = input("Type 's' to return to the beginning and try a different path: ").lower()
                                         if start_again == 's':
                                             start_adventure()
-                                        else: 
+                                        else:
                                             print("Invalid input. Try again!")
                                 elif choice_sr == 'r':
                                     clear_screen()
@@ -159,12 +165,12 @@ def junction_loop():
                                         if continue_forward == 'c':
                                             clear_screen()
                                             bridge_loop()
-                                else: 
+                                else:
                                     print("Invalid input. Try again! ")
-                        elif choice_hc =='c':
+                        elif choice_hc == 'c':
                             clear_screen()
                             print(ignore_cell)
-                        else: 
+                        else:
                             print("Invalid input. Please type 'h' to hide or 'c' to ignore and continue: ")
                 elif choice_tw == 'w':
                     clear_screen()
@@ -174,9 +180,9 @@ def junction_loop():
                         if continue_forward == 'c':
                             clear_screen()
                             bridge_loop()
-                        else: 
+                        else:
                             print("Invalid input. Try again! ")
-                else: 
+                else:
                     print("Invalid input. Try again! ")
         elif choice_123 == '2':
             clear_screen()
@@ -238,6 +244,7 @@ def junction_loop():
         else:
             print("Invalid input. Try again!")
 
+
 def bridge_loop():
     print(bridge_cell)
     while True:
@@ -245,45 +252,44 @@ def bridge_loop():
         if choice_bj == 'b':
             clear_screen()
             print(gun_death1_cell)
-            start_again_loop()                
+            start_again_loop()
         elif choice_bj == 'j':
-                clear_screen()
-                print(bridge_jump_cell)
-                while True:
-                    choice_jr = input("Type 'j' to jeer your assailant or 'r' to run for safety: ").lower()
-                    if choice_jr == 'j':
-                        clear_screen()
-                        print(jeer_cell)
-                        start_again_loop()
-                    elif choice_jr == 'r':
+            clear_screen()
+            print(bridge_jump_cell)
+            while True:
+                choice_jr = input("Type 'j' to jeer your assailant or 'r' to run for safety: ").lower()
+                if choice_jr == 'j':
+                    clear_screen()
+                    print(jeer_cell)
+                    start_again_loop()
+                elif choice_jr == 'r':
+                    clear_screen()
+                    print(exit_cell)
+                    while True:
+                        choice_sc = input("Type 's' to head straight for exit or 'c' to creep along treeline: ").lower()
+                        if choice_sc == 's':
                             clear_screen()
-                            print(exit_cell)
+                            print(go4_exit_cell)
+                            start_again_loop()
+                        elif choice_sc == 'c':
+                            clear_screen()
+                            print(creep_cell)
                             while True:
-                                choice_sc = input("Type 's' to head straight for exit or 'c' to creep along treeline: ").lower()
-                                if choice_sc == 's':
+                                choice_rw = input("Type 'r' to run for exit or 'w' to wait: ").lower()
+                                if choice_rw == 'r':
                                     clear_screen()
-                                    print(go4_exit_cell)
+                                    print(victory_cell)
+                                elif choice_rw == 'w':
+                                    clear_screen()
+                                    print(hunters_cell)
                                     start_again_loop()
-                                elif choice_sc == 'c':
-                                    clear_screen()
-                                    print(creep_cell)
-                                    while True:
-                                        choice_rw = input("Type 'r' to run for exit or 'w' to wait: ").lower()
-                                        if choice_rw == 'r':
-                                            clear_screen()
-                                            print(victory_cell)
-                                        elif choice_rw == 'w':
-                                            clear_screen()
-                                            print(hunters_cell)
-                                            start_again_loop()
-                                        else: 
-                                            print("Invalid input. Try again!")
-                                else: 
+                                else:
                                     print("Invalid input. Try again!")
-                    else: 
-                        print("Invalid input. Try again!")  
-        else:
-            print("Invalid input. Try again!")
+                        else:
+                            print("Invalid input. Try again!")
+            else:
+                print("Invalid input. Try again!")
+
 
 def weapon_loop():
     print(weapon_cell)
@@ -332,6 +338,7 @@ def weapon_loop():
         else:
             print("Invalid input. Try again.")
 
+
 def fence_opening_loop():
     print(fence_opening_cell)
     while True:
@@ -344,6 +351,7 @@ def fence_opening_loop():
             hide_loop()
         else:
             print("Invalid option. Try again.")
+
 
 def river_loop():
     print(river_cell)
@@ -404,9 +412,9 @@ def river_loop():
                                             clear_screen()
                                             hide_loop()
                                         else:
-                                            print("Invalid input. Try again!")                                        
+                                            print("Invalid input. Try again!")
                                 else:
-                                    print("Invalid input. Try again!")                            
+                                    print("Invalid input. Try again!")
                         else:
                             print("Invalid input. Try again!")
                 else:
@@ -418,6 +426,7 @@ def river_loop():
         else:
             print("Invalid input. Try again!")
 
+
 def hide_loop():
     print(hide3_cell)
     while True:
@@ -427,7 +436,7 @@ def hide_loop():
             print(barn_cell)
         elif choice_be == 'e':
             clear_screen()
-            print (map_find_cell)
+            print(map_find_cell)
             while True:
                 choice_wl = input("Type 'l' to leave now or 'w' to wait and see: ").lower()
                 if choice_wl == 'l':
@@ -464,13 +473,14 @@ def hide_loop():
         else:
             print("Invalid input. Try again!")
 
+
 def move_on_loop():
     print(move_on_cell)
     while True:
         choice_cb = input("Type 'c' to climb down cliff to the scrapyard or 'b' to go back: ").lower()
         if choice_cb == 'c':
             clear_screen()
-            print (climb_down_cell)
+            print(climb_down_cell)
             while True:
                 choice_yb = input("Type 'y' enter the yard or 'b' to skip the yard and go to bridge: ").lower()
                 if choice_yb == 'y':
@@ -509,6 +519,7 @@ def move_on_loop():
         else:
             print("Invalid input. Try again!")
 
+
 start_choice = input().lower()
 
 if start_choice == "y":
@@ -520,14 +531,16 @@ else:
     print("Invalid choice. Please enter 'y' or 'n'.")
     retry = input("Do you want to retry? (y/n): ").lower()
     if retry == "y":
-       start_adventure()
-    elif retry == "n": 
+        start_adventure()
+    elif retry == "n":
         print("That's too bad, maybe another time")
     else:
         print("Incorrect input try again")
-        
+
+
 escape_code = generate_escape_code(player_name)
-    
+
+
 code_attempts = 3
 while code_attempts > 0:
     user_code = input("Enter the code to escape: ")
@@ -543,23 +556,23 @@ while code_attempts > 0:
             retry = input("Do you want to retry? (y/n): ").lower()
             if retry == "y":
                 start_adventure()
-            elif retry == "n": 
+            elif retry == "n":
                 print("That's too bad, maybe another time")
             else:
                 print("Incorrect input try again")
-                
+
 
 clear_screen()
 print(escape_holding_cell)
 time.sleep(2)
-print(realization_cell) 
+print(realization_cell)
 while True:
     choice_cx = input("Type 'c' to continue or 'x' to exit: ").lower()
     if choice_cx == 'c':
         clear_screen()
         print(initial_descision_cell)
         while True:
-            choice_lfr = input("Type 'l' to go left toward river, 'f' to go forward or 'r' to go right in to the forest: ").lower() 
+            choice_lfr = input("Type 'l' to go left toward river, 'f' to go forward or 'r' to go right in to the forest: ").lower()
             if choice_lfr == 'f':
                 clear_screen()
                 junction_loop()
@@ -574,7 +587,7 @@ while True:
                         start_again_loop()
                     elif choice_fb == 'b':
                         clear_screen()
-                        print(goback_cell) 
+                        print(goback_cell)
                         while True:
                             choice_fl = input("Type 'f' to go forward or 'l' to go to the river: ").lower()
                             if choice_fl == 'f':
@@ -583,7 +596,7 @@ while True:
                             elif choice_fl == 'l':
                                 clear_screen()
                                 river_loop()
-                            else: 
+                            else:
                                 print("Invalid input. Try again!")
             elif choice_lfr == 'l':
                 clear_screen()
@@ -596,4 +609,3 @@ while True:
         start_adventure()
     else:
         print("Invalid input. Try again!")
-    
