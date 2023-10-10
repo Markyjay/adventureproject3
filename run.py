@@ -13,7 +13,6 @@ from google.oauth2.service_account import Credentials
 colorama.init(autoreset=True)
 
 
-
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -41,6 +40,8 @@ cell_names = [
 
 
 cell_values = {cell_name: story.acell(cell_name).value for cell_name in cell_names}
+
+
 
 
 def clear_screen():
@@ -83,13 +84,7 @@ def start_adventure():
     Begins the adventure story to the point of escape using the code.
     The user has three attempts to correctly identify the correct code created from their name.
     '''
-     # Initial text
-    title = (pyfiglet.figlet_format("HUNTERS ARENA"))
-    print(f"{Fore.CYAN} {title}")
-    print("A CHOOSE YOUR OWN ADVENTURE FOR THOSE WHO DARE TO RISK IT ALL!!")
     print("\nWelcome to your adventure {}!".format(player_name))
-    time.sleep(1)
-    print("Make your choices by typing the value diplayed in brackets.")
     time.sleep(1)
     print(cell_values['A1'])
     time.sleep(2)
@@ -692,14 +687,23 @@ def move_on_loop():
             print("Invalid input. Try again!")
 
 
+
+ # Initial text
+
+
+
+title = (pyfiglet.figlet_format("HUNTERS ARENA"))
+print(f"{Fore.CYAN} {title}")
+print("A CHOOSE YOUR OWN ADVENTURE FOR THOSE WHO DARE TO RISK IT ALL!!")
+print(Fore.CYAN+"----------------------------------------------------\n")
+print("Make your choices by typing the values displayed in brackets.")
+
 '''
 While loop that begins the program with the initial choice to play or not to play.
 If no the program breaks, if yes the adventure begins, if invalid it returns the choices to user.
 '''
-
 while True:
     start_choice = input("Would you like to start your adventure? (y/n): ").lower()
-    
     if start_choice == "y":
         player_name = get_name()
         start_adventure()
@@ -709,4 +713,3 @@ while True:
         break  # Exit the loop if the user enters 'n'
     else:
         print("Invalid choice. Please enter 'y' or 'n'.")
-
