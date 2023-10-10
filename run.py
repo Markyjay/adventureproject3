@@ -34,9 +34,6 @@ cell_names = [
 cell_values = {cell_name: story.acell(cell_name).value for cell_name in cell_names}
 
 
-print("Would you like to start your adventure? (y/n): ")
-
-
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -69,6 +66,26 @@ def start_adventure():
     time.sleep(2)
     print(cell_values['A2'])
     time.sleep(2)
+    escape_code = generate_escape_code(player_name)
+    code_attempts = 3
+    while code_attempts > 0:
+        user_code = input("Enter the code to escape: ")
+        if user_code == escape_code:
+            print("Congratulations! You've successfully escaped the room.")
+            break
+        else:
+            code_attempts -= 1
+            if code_attempts > 0:
+                print(f"Incorrect code. You have {code_attempts} attempts left.")
+            else:
+                print("Sorry, you've run out of attempts. The room remains locked.")
+                retry = input("Do you want to retry? (y/n):\n").lower()
+                if retry == "y":
+                    start_adventure()
+                elif retry == "n":
+                    print("That's too bad, maybe another time")
+                else:
+                    print("Incorrect input try again")
 
 
 def start_again_loop():
@@ -523,52 +540,28 @@ def move_on_loop():
                                     initial_gate_loop()
                                 else:
                                     print("Invalid input. Try again!")
+                        else:
+                            print("Invalid input. Try again!")
                 else:
                     print("Invalid input. Try again!")
         else:
             print("Invalid input. Try again!")
 
 
-start_choice = input().lower()
-
-if start_choice == "y":
-    player_name = get_name()
-    start_adventure()
-elif start_choice == "n":
-    print("That's too bad, maybe another time.")
-else:
-    print("Invalid choice. Please enter 'y' or 'n'.")
-    retry = input("Do you want to retry? (y/n):\n").lower()
-    if retry == "y":
+while True:
+    start_choice = input("Would you like to start your adventure? (y/n): ").lower()
+    
+    if start_choice == "y":
+        player_name = get_name()
         start_adventure()
-    elif retry == "n":
-        print("That's too bad, maybe another time")
-    else:
-        print("Incorrect input try again")
-
-
-escape_code = generate_escape_code(player_name)
-
-
-code_attempts = 3
-while code_attempts > 0:
-    user_code = input("Enter the code to escape: ")
-    if user_code == escape_code:
-        print("Congratulations! You've successfully escaped the room.")
         break
+    elif start_choice == "n":
+        print("That's too bad, maybe another time.")
+        break  # Exit the loop if the user enters 'n'
     else:
-        code_attempts -= 1
-        if code_attempts > 0:
-            print(f"Incorrect code. You have {code_attempts} attempts left.")
-        else:
-            print("Sorry, you've run out of attempts. The room remains locked.")
-            retry = input("Do you want to retry? (y/n):\n").lower()
-            if retry == "y":
-                start_adventure()
-            elif retry == "n":
-                print("That's too bad, maybe another time")
-            else:
-                print("Incorrect input try again")
+        print("Invalid choice. Please enter 'y' or 'n'.")
+
+
 
 
 clear_screen()
