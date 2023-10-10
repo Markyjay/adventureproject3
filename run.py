@@ -1,8 +1,13 @@
-import gspread
-from google.oauth2.service_account import Credentials
+'''
+A free python adventure game for those willing to take on a harrowing challenge. 
+'''
 
+import gspread
 import time
 import os
+from google.oauth2.service_account import Credentials
+
+
 
 
 SCOPE = [
@@ -35,10 +40,19 @@ cell_values = {cell_name: story.acell(cell_name).value for cell_name in cell_nam
 
 
 def clear_screen():
+    '''
+    Clears terminal.
+    '''
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def get_name():
+    '''
+    Get the username input from the user
+    Run a while loop to collect a valid alpha username of data from user
+    via the terminal. The loop will repeatedly request data, until it is valid
+    When the username is valid, then the start adventure function will be called.
+    '''
     while True:
         name = input("What is your name?\n")
         if name.isalpha():
@@ -48,6 +62,9 @@ def get_name():
 
 
 def generate_escape_code(name):
+    '''
+    Generates a code that is created from the valid name that the user inputs.
+    '''
     name = name.lower()
     last_letter = name[-1]
     num_letters = len(name)
@@ -58,6 +75,10 @@ def generate_escape_code(name):
 
 
 def start_adventure():
+    '''
+    Begins the adventure story to the point of escape using the code.
+    The user has three attempts to correctly identify the correct code created from their name.
+    '''
     print("\nWelcome to your adventure {}!".format(player_name))
     time.sleep(1)
     print("Make your choices by typing the value diplayed in brackets.")
@@ -72,7 +93,7 @@ def start_adventure():
         user_code = input("Enter the code to escape: ")
         if user_code == escape_code:
             print("Congratulations! You've successfully escaped the room.")
-            break
+            main()
         else:
             code_attempts -= 1
             if code_attempts > 0:
@@ -88,7 +109,66 @@ def start_adventure():
                     print("Incorrect input try again")
 
 
+def main():
+    '''
+    Main story line function. Scene split into manageable functions.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
+    clear_screen()
+    print(cell_values['A3'])
+    time.sleep(2)
+    print(cell_values['A4'])
+    while True:
+        choice_cx = input("Type 'c' to continue or 'x' to exit:\n").lower()
+        if choice_cx == 'c':
+            clear_screen()
+            print(cell_values['A5'])
+            while True:
+                choice_lfr = input("Type 'l' to go left toward river, 'f' to go forward or 'r' to go right in to the forest:\n").lower()
+                if choice_lfr == 'f':
+                    clear_screen()
+                    junction_loop()
+                elif choice_lfr == 'r':
+                    clear_screen()
+                    print(cell_values['B6'])
+                    while True:
+                        choice_fb = input("Type 'f' to go forward or 'b' to go back:\n").lower()
+                        if choice_fb == 'f':
+                            clear_screen()
+                            print(cell_values['B1'])
+                            start_again_loop()
+                        elif choice_fb == 'b':
+                            clear_screen()
+                            print(cell_values['B7'])
+                            while True:
+                                choice_fl = input("Type 'f' to go forward or 'l' to go to the river:\n").lower()
+                                if choice_fl == 'f':
+                                    clear_screen()
+                                    junction_loop()
+                                elif choice_fl == 'l':
+                                    clear_screen()
+                                    river_loop()
+                                else:
+                                    print("Invalid input. Try again!")
+                elif choice_lfr == 'l':
+                    clear_screen()
+                    print(cell_values['B5'])
+                    river_loop()
+                else:
+                    print("Invalid input. Try again! ")
+        elif choice_cx == 'x':
+            print("You lie down and wait for death. Game Over!")
+            start_adventure()
+        else:
+            print("Invalid input. Try again!")
+
+
 def start_again_loop():
+    '''
+    A loop function that can be used thoughout the code to restart the adventure in cases of failure to survive.
+    '''
     while True:
         start_again = input("Type 's' to start another path:\n").lower()
         if start_again == 's':
@@ -99,6 +179,13 @@ def start_again_loop():
 
 
 def junction_loop():
+    '''
+    As the Juction scenario occurs multiple times in the story a function containing 
+    all possible paths from the junction scene is created for easier referral.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['B4'])
     while True:
         choice_123 = input("Type '1', '2' or '3':\n").lower()
@@ -208,6 +295,13 @@ def junction_loop():
 
 
 def initial_gate_loop():
+    '''
+    As the initial gate scenario occurs multiple times in the story a function containing 
+    all possible paths from the gate scene is created for easier referral throughout the code.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['D1'])
     while True:
         choice_la = input("Type 'l' to open lock or 'a' to find another way:\n").lower()
@@ -232,6 +326,13 @@ def initial_gate_loop():
 
 
 def bridge_loop():
+    '''
+    As the bridge scenario occurs multiple times in the story a function containing 
+    all possible paths from the bridge scene is created for easier referral throughout the code.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['E2'])
     while True:
         choice_bj = input("Type 'b' to turn back or 'j' to attempt jump:\n").lower()
@@ -278,6 +379,13 @@ def bridge_loop():
 
 
 def weapon_loop():
+    '''
+    As the weapon scenario occurs multiple times in the story a function containing 
+    all possible paths from the weapon scene is created for easier referral throughout the code.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['F5'])
     while True:
         choice_we = input("Type 'w' to go for weapon or 'e' to enter RV:\n").lower()
@@ -326,6 +434,13 @@ def weapon_loop():
 
 
 def fence_opening_loop():
+    '''
+    As the fence opening scenario occurs multiple times in the story a function containing 
+    all possible paths from the fence scene is created for easier referral throughout the code.
+    Each choice variable is named by the to possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['E4'])
     while True:
         choice_hw = input("Type 'w' to find a weapon or 'h' to find a hiding spot:\n").lower()
@@ -340,6 +455,13 @@ def fence_opening_loop():
 
 
 def river_loop():
+    '''
+    As the river scenario occurs multiple times in the story a function containing 
+    all possible paths from the river scene is created for easier referral throughout the code.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['B5'])
     while True:
         choice_hg = input("Type 'h' to hide or 'g' to greet the driver:\n").lower()
@@ -414,6 +536,13 @@ def river_loop():
 
 
 def hide_loop():
+    '''
+    As the hide scenario occurs multiple times in the story a function containing 
+    all possible paths from the hide scene is created for easier referral throughout the code.
+    Each choice variable is named by the possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['F6'])
     while True:
         choice_be = ("Type 'b' to go for the barn or 'e' to try the RV:\n").lower()
@@ -461,6 +590,13 @@ def hide_loop():
 
 
 def move_on_loop():
+    '''
+    As the move on scenario occurs multiple times in the story a function containing 
+    all possible paths from the move on scene is created for easier referral throughout the code.
+    Each choice variable is named by the to possible values the user can choose. 
+    While loops are used to take the user from scene to scene. 
+    Each loop has an else section for any invalid inputs the user may use.
+    '''
     print(cell_values['F8'])
     while True:
         choice_cb = input("Type 'c' to climb down cliff to the scrapyard or 'b' to go back:\n").lower()
@@ -548,6 +684,11 @@ def move_on_loop():
             print("Invalid input. Try again!")
 
 
+'''
+While loop that begins the program with the initial choice to play or not to play.
+If no the program breaks, if yes the adventure begins, if invalid it returns the choices to user.
+'''
+
 while True:
     start_choice = input("Would you like to start your adventure? (y/n): ").lower()
     
@@ -561,53 +702,3 @@ while True:
     else:
         print("Invalid choice. Please enter 'y' or 'n'.")
 
-
-
-
-clear_screen()
-print(cell_values['A3'])
-time.sleep(2)
-print(cell_values['A4'])
-while True:
-    choice_cx = input("Type 'c' to continue or 'x' to exit:\n").lower()
-    if choice_cx == 'c':
-        clear_screen()
-        print(cell_values['A5'])
-        while True:
-            choice_lfr = input("Type 'l' to go left toward river, 'f' to go forward or 'r' to go right in to the forest:\n").lower()
-            if choice_lfr == 'f':
-                clear_screen()
-                junction_loop()
-            elif choice_lfr == 'r':
-                clear_screen()
-                print(cell_values['B6'])
-                while True:
-                    choice_fb = input("Type 'f' to go forward or 'b' to go back:\n").lower()
-                    if choice_fb == 'f':
-                        clear_screen()
-                        print(cell_values['B1'])
-                        start_again_loop()
-                    elif choice_fb == 'b':
-                        clear_screen()
-                        print(cell_values['B7'])
-                        while True:
-                            choice_fl = input("Type 'f' to go forward or 'l' to go to the river:\n").lower()
-                            if choice_fl == 'f':
-                                clear_screen()
-                                junction_loop()
-                            elif choice_fl == 'l':
-                                clear_screen()
-                                river_loop()
-                            else:
-                                print("Invalid input. Try again!")
-            elif choice_lfr == 'l':
-                clear_screen()
-                print(cell_values['B5'])
-                river_loop()
-            else:
-                print("Invalid input. Try again! ")
-    elif choice_cx == 'x':
-        print("You lie down and wait for death. Game Over!")
-        start_adventure()
-    else:
-        print("Invalid input. Try again!")
