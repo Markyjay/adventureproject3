@@ -1,12 +1,16 @@
 '''
-A free python adventure game for those willing to take on a harrowing challenge. 
+A free python adventure game for those willing to take on a harrowing challenge.
+Author: Mark Young 
 '''
 
 import gspread
 import time
+import pyfiglet
 import os
+import colorama
+from colorama import Fore
 from google.oauth2.service_account import Credentials
-
+colorama.init(autoreset=True)
 
 
 
@@ -79,6 +83,10 @@ def start_adventure():
     Begins the adventure story to the point of escape using the code.
     The user has three attempts to correctly identify the correct code created from their name.
     '''
+     # Initial text
+    title = (pyfiglet.figlet_format("HUNTERS ARENA"))
+    print(f"{Fore.CYAN} {title}")
+    print("A CHOOSE YOUR OWN ADVENTURE FOR THOSE WHO DARE TO RISK IT ALL!!")
     print("\nWelcome to your adventure {}!".format(player_name))
     time.sleep(1)
     print("Make your choices by typing the value diplayed in brackets.")
