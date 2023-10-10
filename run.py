@@ -157,13 +157,12 @@ def main():
                                     print("Invalid input. Try again!")
                 elif choice_lfr == 'l':
                     clear_screen()
-                    print(cell_values['B5'])
                     river_loop()
                 else:
                     print("Invalid input. Try again! ")
         elif choice_cx == 'x':
             print("You lie down and wait for death. Game Over!")
-            start_adventure()
+            start_again_loop()
         else:
             print("Invalid input. Try again!")
 
@@ -369,6 +368,9 @@ def bridge_loop():
                                 if choice_rw == 'r':
                                     clear_screen()
                                     print(cell_values['H4'])
+                                    congrats = (pyfiglet.figlet_format("CONGRATULATIONS"))
+                                    print(f"{Fore.CYAN} {title}")
+                                    print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
                                 elif choice_rw == 'w':
                                     clear_screen()
                                     print(cell_values['H3'])
