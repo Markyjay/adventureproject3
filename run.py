@@ -52,11 +52,11 @@ def clear_screen():
 
 def get_name():
     '''
-    Get the username input from the user
-    Run a while loop to collect a valid alpha username of data from user
-    via the terminal. The loop will repeatedly request data, until it is valid
-    When the username is valid,
-    then the start adventure function will be called.
+    Get the username input from the user. Run a while loop to collect 
+    a valid alpha username of data from user via the terminal. 
+    The loop will repeatedly request data, until it is valid
+    When the username is valid, then the start adventure 
+    function will be called.
     '''
     while True:
         name = input("What is your name?\n")
@@ -68,7 +68,7 @@ def get_name():
 
 def generate_escape_code(name):
     '''
-    Generates a code that is created from the valid name that the user inputs.
+    Generates a code that is created from the valid name the user inputs.
     '''
     name = name.lower()
     last_letter = name[-1]
@@ -124,7 +124,7 @@ def main():
     time.sleep(2)
     print(cell_values['A4'])
     while True:
-        choice_cx = input("Type 'c' to continue or 'x' to exit:\n").lower()
+        choice_cx = input("Type 'c' or 'x':\n").lower()
         if choice_cx == 'c':
             clear_screen()
             print(cell_values['A5'])
@@ -155,6 +155,8 @@ def main():
                                     river_loop()
                                 else:
                                     print("Invalid input. Try again!")
+                        else:
+                            print("Invalid input. Try again!")
                 elif choice_lfr == 'l':
                     clear_screen()
                     river_loop()
@@ -184,8 +186,8 @@ def start_again_loop():
 def junction_loop():
     '''
     A function containing all possible paths from the junction
-    scene is created for easier referral.
-    Each choice variable is labeled by the possible values the user can choose.
+    scene is created for easier referral. Each choice variable 
+    is labeled by the possible values the user can choose.
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
     '''
@@ -199,40 +201,7 @@ def junction_loop():
                 choice_tw = input("Type 't' or 'w':\n").lower()
                 if choice_tw == 't':
                     clear_screen()
-                    print(cell_values['C3'])
-                    while True:
-                        choice_hc = input("Type 'h' or 'c':\n").lower()
-                        if choice_hc == 'h':
-                            clear_screen()
-                            print(cell_values['C2'])
-                            while True:
-                                choice_sr = input("Type 's' or 'r':\n").lower()
-                                if choice_sr == 's':
-                                    clear_screen()
-                                    print(cell_values['F1'])
-                                    start_again_loop()
-                                elif choice_sr == 'r':
-                                    clear_screen()
-                                    print(cell_values['C1'])
-                                    while True:
-                                        continue_forward = input("Type 'c':\n").lower()
-                                        if continue_forward == 'c':
-                                            clear_screen()
-                                            bridge_loop()
-                                else:
-                                    print("Invalid input. Try again!")
-                        elif choice_hc == 'c':
-                            clear_screen()
-                            print(cell_values['C1'])
-                            while True:
-                                choice_c1 = input("Type 'c':\n").lower()
-                                if choice_c1 == 'c':
-                                    clear_screen()
-                                    bridge_loop()
-                                else:
-                                    print("Invalid input. Try again!")
-                        else:
-                            print("Invalid input. Try again!")
+                    tend_wound()
                 elif choice_tw == 'w':
                     clear_screen()
                     print(cell_values['E1'])
@@ -327,6 +296,43 @@ def initial_gate_loop():
             fence_opening_loop()
         else:
             print("Invalid input. Try again!")
+
+
+def tend_wound():
+    print(cell_values['C3'])
+        while True:
+            choice_hc = input("Type 'h' or 'c':\n").lower()
+            if choice_hc == 'h':
+                clear_screen()
+                print(cell_values['C2'])
+                while True:
+                    choice_sr = input("Type 's' or 'r':\n").lower()
+                    if choice_sr == 's':
+                        clear_screen()
+                        print(cell_values['F1'])
+                        start_again_loop()
+                    elif choice_sr == 'r':
+                        clear_screen()
+                        print(cell_values['C1'])
+                        while True:
+                            continue_forward = input("Type 'c':\n").lower()
+                            if continue_forward == 'c':
+                                clear_screen()
+                                bridge_loop()
+                    else:
+                        print("Invalid input. Try again!")
+            elif choice_hc == 'c':
+                    clear_screen()
+                    print(cell_values['C1'])
+                    while True:
+                        choice_c1 = input("Type 'c':\n").lower()
+                        if choice_c1 == 'c':
+                            clear_screen()
+                            bridge_loop()
+                        else:
+                            print("Invalid input. Try again!")
+                else:
+                    print("Invalid input. Try again!")
 
 
 def bridge_loop():
@@ -675,6 +681,7 @@ def move_on_loop():
                     print("Invalid input. Try again!")
         else:
             print("Invalid input. Try again!")
+
 
 def congrats():
     print(cell_values['H2'])
