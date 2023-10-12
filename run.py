@@ -319,6 +319,7 @@ def initial_gate_loop():
                 elif choice_rc == 'c':
                     clear_screen()
                     print(cell_values['F4'])
+                    start_again_loop()
                 else:
                     print("Invalid input. Try again!")
         elif choice_la == 'a':
@@ -363,22 +364,7 @@ def bridge_loop():
                             start_again_loop()
                         elif choice_sc == 'c':
                             clear_screen()
-                            print(cell_values['H2'])
-                            while True:
-                                choice_rw = input("Type 'r' or 'w':\n").lower()
-                                if choice_rw == 'r':
-                                    clear_screen()
-                                    print(cell_values['H4'])
-                                    congrats = (pyfiglet.figlet_format("CONGRATULATIONS"))
-                                    # Adds a pyfiglet font for a victory path
-                                    print(f"{Fore.CYAN} {title}")
-                                    print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
-                                elif choice_rw == 'w':
-                                    clear_screen()
-                                    print(cell_values['H3'])
-                                    start_again_loop()
-                                else:
-                                    print("Invalid input. Try again!")
+                            congrats()
                         else:
                             print("Invalid input. Try again!")
             else:
@@ -689,6 +675,27 @@ def move_on_loop():
                     print("Invalid input. Try again!")
         else:
             print("Invalid input. Try again!")
+
+def congrats():
+    print(cell_values['H2'])
+    while True:
+        choice_rw = input("Type 'r' or 'w':\n").lower()
+        if choice_rw == 'r':
+            clear_screen()
+            print(cell_values['H4'])
+            congrats = (pyfiglet.figlet_format("CONGRATULATIONS"))
+            # Adds a pyfiglet font for a victory path
+            print(f"{Fore.CYAN} {title}")
+            print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
+        elif choice_rw == 'w':
+            clear_screen()
+            print(cell_values['H3'])
+            start_again_loop()
+        else:
+            print("Invalid input. Try again!")
+
+
+
 
 
 # Initial text

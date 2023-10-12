@@ -102,32 +102,31 @@ The final product should:
 - give clear instructions regarding use and valid inputs.
 
 ---
+## UX &#8722; User Experience Design
 
+### User Requirements
 
+Some example user stories which will affect the design
 
-## Reminders
+#### First Time User
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+> *"As an adult, I would like to be able to input experience the nostalgia 
+> of reading a choose your own adventure book"*
+>
+> *"As a child, I would like to experince a captivating storyline that has easy accessibility "*
+>
+> *"As someone who has never used a CLI before, I would like to know my inputs
+> are valid"*
+> 
+> *"As a programmer, I would like to see the diversity and flexibility of the python language"*
 
-## Creating the Heroku app
+#### Returning User
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+> *"As a returning user, I would like to experience different paths and different stories"*
+>
+> *"I would like to feel a sense of achievement at the end for remembering the story and path correctly"*
+>
+> *"If I return to play again, I would like to be able to take a different path but still win the game"*
 
 ---
 
-Happy coding!
