@@ -150,3 +150,38 @@ Due to the nature of this project the program suggested to use
 
 ---
 
+#### Colour Scheme
+
+The colour scheme for this project relies heavily on the colours available
+through the `colorama` package within Python. I chose the color Cyan for 
+the pyfiglet font and the package has allowed a few colours to be applied 
+to text within the terminal environment. The colours outside the terminal 
+are designed based around a classic CRT style monitor. Contrast checks 
+have been done to ensure the 'Run Program' button and text present are 
+of a high enough contrast to be easily read.
+
+---
+
+#### Typography
+
+
+---
+
+
+### Initial Flow
+
+![Lucid Chart](./readme-content/images/lucidchart.jpg)
+
+---
+
+### Python Logic
+
+
+
+---
+## Features
+
+### Existing Features
+
+#### UX
+
