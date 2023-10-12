@@ -130,3 +130,23 @@ Some example user stories which will affect the design
 
 ---
 
+### Initial Concept
+
+I intend to make a choose your own adventure game, i used to read these books as a child
+and i like to write short stories. I thought of the idea of using the API as shown in 
+the sample project for inputing the pages or scenarios of the story like pages to each cell
+in the spreadsheet. I would create a somewhat complex path through a short story for which 
+the user input creates the story. I thought of an escape room scenario that provided an 
+opportunity to showcase various python commands learned through out the sample project. 
+The story developed from this escape room concept.
+
+#### Wireframes
+
+Due to the nature of this project the program suggested to use 
+
+##### Desktop
+
+![Desktop Wireframe](./readme-content/wireframes/index.png)  
+
+---
+
