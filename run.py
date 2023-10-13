@@ -703,8 +703,6 @@ def congrats():
 
 
 
-
-
 # Initial text
 title = (pyfiglet.figlet_format("HUNTERS ARENA"))
 print(f"{Fore.CYAN} {title}")
