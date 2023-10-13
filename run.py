@@ -52,10 +52,10 @@ def clear_screen():
 
 def get_name():
     '''
-    Get the username input from the user. Run a while loop to collect 
-    a valid alpha username of data from user via the terminal. 
+    Get the username input from the user. Run a while loop to collect
+    a valid alpha username of data from user via the terminal.
     The loop will repeatedly request data, until it is valid
-    When the username is valid, then the start adventure 
+    When the username is valid, then the start adventure
     function will be called.
     '''
     while True:
@@ -186,7 +186,7 @@ def start_again_loop():
 def junction_loop():
     '''
     A function containing all possible paths from the junction
-    scene is created for easier referral. Each choice variable 
+    scene is created for easier referral. Each choice variable
     is labeled by the possible values the user can choose.
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
@@ -702,9 +702,10 @@ def congrats():
             print("Invalid input. Try again!")
 
 
-
 # Initial text
+
 title = (pyfiglet.figlet_format("HUNTERS ARENA"))
+
 print(f"{Fore.CYAN} {title}")
 print("A CHOOSE YOUR OWN ADVENTURE FOR THOSE WHO DARE TO RISK IT ALL!!")
 print(Fore.CYAN+"----------------------------------------------------\n")
@@ -717,12 +718,12 @@ If no the program breaks, if yes the adventure begins,
 if invalid it returns the choices to user.
 '''
 while True:
-    start_choice = input("Would you like to start your adventure? (y/n): ").lower()
-    if start_choice == "y":
+    choice_yn = input("Would you like to start your adventure? (y/n):\n").lower()
+    if choice_yn == "y":
         player_name = get_name()
         start_adventure()
         break
-    elif start_choice == "n":
+    elif choice_yn == "n":
         print("That's too bad, maybe another time.")
         break  # Exit the loop if the user enters 'n'
     else:

@@ -141,16 +141,17 @@ I decided to use a text-based data model. The mechanics, interactions, and story
 
 ## Technologies Used
 
-
 ### Python Packages
+
+[Python Snippets 3 (Pro)](EricSia.pythonsnippets3pro) - New auto suggestion for Python updated in 2023
+[Python Path](mgesbert.python-path) - Python imports utils.
 
 ### VSCode Extensions
 
-
+[Error Lens](usernamehw.errorlens) - Improve highlighting of errors, warnings and other language diagnostics.
+[Live Server](ritwickdey.LiveServer) - Launch a development local Server with live reload feature for static & dynamic pages
 
 ## Testing
-
-###
 
 ### Manual Testing
 
@@ -166,26 +167,26 @@ I decided to use a text-based data model. The mechanics, interactions, and story
 * Entering the incorrect code 3 times returns the holding cell permenantly locked.
     * Response: Receive a message promting that the holding cell is locked and asks user would they like to try again.
 
-* In the City, choosing to enter the minefield.
-    * Response: When the player chooses to enter the minefield, they receive the death message, and they are prompted to play again. If they choose no, a message is printed, and they are prompted to head back to the city.
-
 
 ### PEP8 Testing
 
-
+[CI Python Linter](https://pep8ci.herokuapp.com/) - Pylint is a Python static code analysis tool which looks for programming errors, 
+helps enforcing a coding standard, sniffs for code smells and offers simple refactoring suggestions.
 
 
 ### Bugs
 
 #### Current
 
+* Python & Sheet | Code 429: Quota exceeded for quota metric 'Read requests' - being new to coding and working with API's i discovered 
+late into my project that each spreadsheet created by a user has a limited number of read requests. 
+
 
 #### Resolved
 
-* Issue: Invalid input 
+* Issue: Invalid input return repetition
 
-    Explanation: 
-
+    Explanation: there were two instances of the same variable, so when one instance was called the code returned invalid.
         
 
 * Issue: 
@@ -217,10 +218,6 @@ I decided to use a text-based data model. The mechanics, interactions, and story
     Explanation:
 
 
-#### Remaining Bugs
-
-
-
 ### Validator Testing
 
 * PEP8
@@ -228,14 +225,44 @@ I decided to use a text-based data model. The mechanics, interactions, and story
    * Errors for character length below 80 characters. Made new def functions to contract the story loops in to smaller manageable parts.
 
 ## Development
+
 ### Github
+
+GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+[GitHub](https://github.com/)
+
 ### VSCode
 
+Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running, and version control. 
+It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as Visual Studio IDE.
+[VSCode](https://code.visualstudio.com/)
 ### Google Sheets
+
+[Google Sheets API](https://console.cloud.google.com/marketplace/browse?filter=partner:Google%20Enterprise%20API&project=adventureproject3)
+The Google Sheets API is a RESTful interface that lets you read and modify a spreadsheet's data. The most common uses of this API include the following tasks:
+
+* Create spreadsheets
+* Read and write spreadsheet cell values
+* Update spreadsheet formatting
+* Manage Connected Sheets
 
 #### Creating Sheets
 
+The primary object in Google Sheets that can contain multiple sheets, each with structured information contained in cells. 
+A Spreadsheet resource represents every spreadsheet and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. 
+You can find the spreadsheet ID in a Google Sheets URL: https://docs.google.com/spreadsheets/d/spreadsheetId/edit#gid=0
+
 #### API Credentials
+
+Credentials are used to obtain an access token from Google's authorization servers so your app can call Google Workspace APIs. This guide describes how to choose and set up the credentials your app needs.
+
+To obtain credentials for your service account:
+
+* In the Google Cloud console, go to Menu menu > IAM & Admin > Service Accounts.
+* Go to Service Accounts and select your service account.
+* Click Keys > Add key > Create new key.
+* Select JSON, then click Create.
+Your new public/private key pair is generated and downloaded to your machine as a new file. Save the downloaded JSON file as credentials.json in your working directory. 
 
 ## Deployment
 
