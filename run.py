@@ -300,39 +300,39 @@ def initial_gate_loop():
 
 def tend_wound():
     print(cell_values['C3'])
-        while True:
-            choice_hc = input("Type 'h' or 'c':\n").lower()
-            if choice_hc == 'h':
-                clear_screen()
-                print(cell_values['C2'])
-                while True:
-                    choice_sr = input("Type 's' or 'r':\n").lower()
-                    if choice_sr == 's':
-                        clear_screen()
-                        print(cell_values['F1'])
-                        start_again_loop()
-                    elif choice_sr == 'r':
-                        clear_screen()
-                        print(cell_values['C1'])
-                        while True:
-                            continue_forward = input("Type 'c':\n").lower()
-                            if continue_forward == 'c':
-                                clear_screen()
-                                bridge_loop()
-                    else:
-                        print("Invalid input. Try again!")
-            elif choice_hc == 'c':
+    while True:
+        choice_hc = input("Type 'h' or 'c':\n").lower()
+        if choice_hc == 'h':
+            clear_screen()
+            print(cell_values['C2'])
+            while True:
+                choice_sr = input("Type 's' or 'r':\n").lower()
+                if choice_sr == 's':
+                    clear_screen()
+                    print(cell_values['F1'])
+                    start_again_loop()
+                elif choice_sr == 'r':
                     clear_screen()
                     print(cell_values['C1'])
                     while True:
-                        choice_c1 = input("Type 'c':\n").lower()
-                        if choice_c1 == 'c':
+                        continue_forward = input("Type 'c':\n").lower()
+                        if continue_forward == 'c':
                             clear_screen()
                             bridge_loop()
-                        else:
-                            print("Invalid input. Try again!")
                 else:
                     print("Invalid input. Try again!")
+        elif choice_hc == 'c':
+            clear_screen()
+            print(cell_values['C1'])
+            while True:
+                choice_c1 = input("Type 'c':\n").lower()
+                if choice_c1 == 'c':
+                    clear_screen()
+                    bridge_loop()
+                else:
+                    print("Invalid input. Try again!")
+        else:
+            print("Invalid input. Try again!")
 
 
 def bridge_loop():
@@ -450,7 +450,7 @@ def fence_opening_loop():
             clear_screen()
             hide_loop()
         else:
-            print("Invalid option. Try again!")
+            print("Invalid input. Try again!")
 
 
 def river_loop():
@@ -511,11 +511,11 @@ def river_loop():
                                     clear_screen()
                                     print(cell_values['E8'])
                                     while True:
-                                        choice_wh = input("Type 'w' or 'h':\n").lower()
-                                        if choice_wh == 'w':
+                                        choice_hn = input("Type 'n' or 'h':\n").lower()
+                                        if choice_hn == 'n':
                                             clear_screen()
                                             weapon_loop()
-                                        elif choice_wh == 'h':
+                                        elif choice_hn == 'h':
                                             clear_screen()
                                             hide_loop()
                                         else:

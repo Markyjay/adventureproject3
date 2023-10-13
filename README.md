@@ -179,9 +179,10 @@ I decided to use a text-based data model. The mechanics, interactions, and story
 
 #### Current
 
+
 #### Resolved
 
-* Issue: 
+* Issue: Invalid input 
 
     Explanation: 
 
