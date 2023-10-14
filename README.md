@@ -125,7 +125,8 @@ The story developed from this escape room concept.
 
 ### Existing Features
 
-* 
+* Use of Google Spreadsheets API to request specific cells containing a scenario for each user input.
+* An escape code scenario to use python functions such as
 
 ### Future Features
 
@@ -186,14 +187,16 @@ late into my project that each spreadsheet created by a user has a limited numbe
 
 * Issue: Invalid input return repetition
 
-    Explanation: there were two instances of the same variable, so when one instance was called the code returned invalid.
-        
+    Explanation: There were two instances of the same variable, so when one instance was called the code returned invalid.
+    Solution: Change the variable name of one. There are three scenarios where the user had a choice to go for a weapon 
+    or to hide so using the letters wh or hw in the variable choice_hw a third option needed to be created and i chose choice_nh.
 
-* Issue: 
+* Issue: PEP8 - E501 line too long (83 > 79 characters) issue: 
 
-    Explanation: 
-
-       
+    Explanation: After completing the general structure of the game code I ran the program through PEP8 CI Python Linter and found that 
+    there were many instances of the E501 error. I thought a clever idea might be to continue splitting the loops into various def's 
+    and it worked but it was clear that it was becoming complicated.
+           
 
 * Issue: 
 
@@ -237,6 +240,8 @@ Visual Studio Code is a streamlined code editor with support for development ope
 It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as Visual Studio IDE.
 [VSCode](https://code.visualstudio.com/)
 ### Google Sheets
+
+https://docs.google.com/spreadsheets/d/1cJHaqoYuqxiKFB8QcVqwG2K4haJS-2Zf4yPUj7eF3QE/edit#gid=0
 
 [Google Sheets API](https://console.cloud.google.com/marketplace/browse?filter=partner:Google%20Enterprise%20API&project=adventureproject3)
 The Google Sheets API is a RESTful interface that lets you read and modify a spreadsheet's data. The most common uses of this API include the following tasks:
