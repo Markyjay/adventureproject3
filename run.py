@@ -28,7 +28,7 @@ SHEET = GSPREAD_CLIENT.open('adventure_sheet')
 story = SHEET.worksheet('story1')
 
 
-cell_names = [
+cells = [
     'A1', 'A2', 'A3', 'A4', 'A5', 'A6',
     'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8',
     'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8',
@@ -40,7 +40,7 @@ cell_names = [
 ]
 
 
-cell_values = {cell_name: story.acell(cell_name).value for cell_name in cell_names}
+cell_values = {cell: story.acell(cell).value for cell in cells}
 
 
 def clear_screen():
@@ -485,6 +485,7 @@ def river_loop():
                                 elif choice_bh == 'h':
                                     clear_screen()
                                     print(cell_values['G2'])
+                                    start_again_loop()
                                 else:
                                     print("Invalid input. Try again!")
                         elif choice_wr == 'r':
