@@ -821,7 +821,7 @@ def distract():
             print("You have found the path to victory")
             clear_screen()
             congrats()
-            break            
+            break
         elif choice_rw == 'w':
             clear_screen()
             time.sleep(1)
@@ -833,12 +833,13 @@ def distract():
 
 
 def congrats():
-    congrats = (pyfiglet.figlet_format("YOU WIN!")) # Adds a pyfiglet font for a victory path
+    congrats = (pyfiglet.figlet_format("YOU WIN!"))
     print(f"{Fore.CYAN} {congrats}")
     print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
     sys.exit()
 
 # Initial text
+
 
 title = (pyfiglet.figlet_format("HUNTERS ARENA"))
 
