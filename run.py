@@ -105,7 +105,7 @@ def start_adventure():
     escape_code = generate_escape_code(player_name)
     code_attempts = 3
     while code_attempts > 0:
-        user_code = input("Enter the code to escape: ")
+        user_code = input("Enter the code to escape: ").lower()
         if user_code == escape_code:
             print("Congratulations! You've successfully escaped the room.")
             main()
