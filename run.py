@@ -10,6 +10,7 @@ import pyfiglet
 import os
 import colorama
 import json
+import textwrap
 import sys
 from colorama import Fore
 from google.oauth2.service_account import Credentials
@@ -27,6 +28,9 @@ cells = [
     'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8'
 ]
 
+def wrap_and_print(text):
+    for line in textwrap.wrap(text, width=80):
+        print(line)
 
 def load_adventure_data():
     try:
@@ -41,7 +45,7 @@ def load_adventure_data():
 story_data = load_adventure_data()
 
 
-def get_cell_value(worksheet_name, cell):
+def get_cell_value(worksheet_name, cell, line_width=80):
     if worksheet_name in story_data and cell in story_data[worksheet_name]:
         return story_data[worksheet_name][cell]
     else:
@@ -94,9 +98,9 @@ def start_adventure():
     '''
     print("\nWelcome to your adventure {}!".format(player_name))
     time.sleep(1)
-    print(cell_values['A1'])
+    wrap_and_print(cell_values['A1'])
     time.sleep(2)
-    print(cell_values['A2'])
+    wrap_and_print(cell_values['A2'])
     time.sleep(2)
     escape_code = generate_escape_code(player_name)
     code_attempts = 3
@@ -128,15 +132,15 @@ def main():
     Each loop has an else section for any invalid inputs the user may use.
     '''
     clear_screen()
-    print(cell_values['A3'])
+    wrap_and_print(cell_values['A3'])
     time.sleep(2)
-    print(cell_values['A4'])
+    wrap_and_print(cell_values['A4'])
     while True:
         choice_cx = input("Type 'c' or 'x':\n").lower()
         if choice_cx == 'c':
             clear_screen()
             time.sleep(1)
-            print(cell_values['A5'])
+            wrap_and_print(cell_values['A5'])
             while True:
                 choice_lfr = input("Type 'l', 'f', or 'r':\n").lower()
                 if choice_lfr == 'f':
@@ -146,18 +150,18 @@ def main():
                 elif choice_lfr == 'r':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['B6'])
+                    wrap_and_print(cell_values['B6'])
                     while True:
                         choice_fb = input("Type 'f' or 'b':\n").lower()
                         if choice_fb == 'f':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['B1'])
+                            wrap_and_print(cell_values['B1'])
                             start_again_loop()
                         elif choice_fb == 'b':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['B7'])
+                            wrap_and_print(cell_values['B7'])
                             while True:
                                 choice_fl = input("Type 'f' or 'l':\n").lower()
                                 if choice_fl == 'f':
@@ -215,7 +219,7 @@ def junction_loop():
         if choice_123 == '1':
             clear_screen()
             time.sleep(1)
-            print(cell_values['B3'])
+            wrap_and_print(cell_values['B3'])
             while True:
                 choice_tw = input("Type 't' or 'w':\n").lower()
                 if choice_tw == 't':
@@ -225,7 +229,7 @@ def junction_loop():
                 elif choice_tw == 'w':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['E1'])
+                    wrap_and_print(cell_values['E1'])
                     while True:
                         continue_forward = input("Type 'c':\n").lower()
                         if continue_forward == 'c':
@@ -239,7 +243,7 @@ def junction_loop():
         elif choice_123 == '2':
             clear_screen()
             time.sleep(1)
-            print(cell_values['C4'])
+            wrap_and_print(cell_values['C4'])
             while True:
                 choice_gr = input("Type 'g' or 'r':\n").lower()
                 if choice_gr == 'g':
@@ -249,7 +253,7 @@ def junction_loop():
                 elif choice_gr == 'r':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['D2'])
+                    wrap_and_print(cell_values['D2'])
                     while True:
                         choice_gd = input("Type 'g' or 'd':\n").lower()
                         if choice_gd == 'g':
@@ -259,7 +263,7 @@ def junction_loop():
                         elif choice_gd == 'd':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['E5'])
+                            wrap_and_print(cell_values['E5'])
                             time.sleep(1)
                             start_again_loop()
                         else:
@@ -269,19 +273,19 @@ def junction_loop():
         elif choice_123 == '3':
             clear_screen()
             time.sleep(1)
-            print(cell_values['D3'])
+            wrap_and_print(cell_values['D3'])
             while True:
                 choice_iq = input("Type 'i' or 'q':\n").lower()
                 if choice_iq == 'i':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['E6'])
+                    wrap_and_print(cell_values['E6'])
                     while True:
                         choice_cm = input("Type 'c' or 'm':\n").lower()
                         if choice_cm == 'c':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['F7'])
+                            wrap_and_print(cell_values['F7'])
                             time.sleep(1)
                             start_again_loop()
                         elif choice_cm == 'm':
@@ -314,7 +318,7 @@ def initial_gate_loop():
         if choice_la == 'l':
             clear_screen()
             time.sleep(1)
-            print(cell_values['E3'])
+            wrap_and_print(cell_values['E3'])
             while True:
                 choice_rc = input("Type 'r' or 'c':\n").lower()
                 if choice_rc == 'r':
@@ -324,7 +328,7 @@ def initial_gate_loop():
                 elif choice_rc == 'c':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['F4'])
+                    wrap_and_print(cell_values['F4'])
                     time.sleep(1)
                     start_again_loop()
                 else:
@@ -338,25 +342,25 @@ def initial_gate_loop():
 
 
 def tend_wound():
-    print(cell_values['C3'])
+    wrap_and_print(cell_values['C3'])
     while True:
         choice_hc = input("Type 'h' or 'c':\n").lower()
         if choice_hc == 'h':
             clear_screen()
             time.sleep(1)
-            print(cell_values['C2'])
+            wrap_and_print(cell_values['C2'])
             while True:
                 choice_sr = input("Type 's' or 'r':\n").lower()
                 if choice_sr == 's':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['F1'])
+                    wrap_and_print(cell_values['F1'])
                     time.sleep(1)
                     start_again_loop()
                 elif choice_sr == 'r':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['C1'])
+                    wrap_and_print(cell_values['C1'])
                     while True:
                         continue_forward = input("Type 'c':\n").lower()
                         if continue_forward == 'c':
@@ -368,7 +372,7 @@ def tend_wound():
         elif choice_hc == 'c':
             clear_screen()
             time.sleep(1)
-            print(cell_values['C1'])
+            wrap_and_print(cell_values['C1'])
             while True:
                 choice_c1 = input("Type 'c':\n").lower()
                 if choice_c1 == 'c':
@@ -389,37 +393,37 @@ def bridge_loop():
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
     '''
-    print(cell_values['E2'])
+    wrap_and_print(cell_values['E2'])
     while True:
         choice_bj = input("Type 'b' or 'j':\n").lower()
         if choice_bj == 'b':
             clear_screen()
             time.sleep(1)
-            print(cell_values['F2'])
+            wrap_and_print(cell_values['F2'])
             time.sleep(1)
             start_again_loop()
         elif choice_bj == 'j':
             clear_screen()
             time.sleep(1)
-            print(cell_values['F3'])
+            wrap_and_print(cell_values['F3'])
             while True:
                 choice_jr = input("Type 'j' or 'r':\n").lower()
                 if choice_jr == 'j':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['D8'])
+                    wrap_and_print(cell_values['D8'])
                     time.sleep(1)
                     start_again_loop()
                 elif choice_jr == 'r':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['C8'])
+                    wrap_and_print(cell_values['C8'])
                     while True:
                         choice_sc = input("Type 's' or 'c':\n").lower()
                         if choice_sc == 's':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['H5'])
+                            wrap_and_print(cell_values['H5'])
                             time.sleep(1)
                             start_again_loop()
                         elif choice_sc == 'c':
@@ -446,37 +450,37 @@ def weapon_loop():
         if choice_we == 'w':
             clear_screen()
             time.sleep(1)
-            print(cell_values['H6'])
+            wrap_and_print(cell_values['H6'])
             time.sleep(1)
             start_again_loop()
         elif choice_we == 'e':
             clear_screen()
             time.sleep(1)
-            print(cell_values['H8'])
+            wrap_and_print(cell_values['H8'])
             while True:
                 choice_lw = input("Type 'l' or 'w':\n").lower()
                 if choice_lw == 'l':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['B2'])
+                    wrap_and_print(cell_values['B2'])
                     while True:
                         choice_sf = input("Type 's' or 'f':\n").lower()
                         if choice_sf == 's':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G5'])
+                            wrap_and_print(cell_values['G5'])
                             time.sleep(1)
                             start_again_loop()
                         elif choice_sf == 'f':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G6'])
+                            wrap_and_print(cell_values['G6'])
                             while True:
                                 choice_ab = input("Type 'a' or 'b':\n").lower()
                                 if choice_ab == 'a':
                                     clear_screen()
                                     time.sleep(1)
-                                    print(cell_values['H1'])
+                                    wrap_and_print(cell_values['H1'])
                                     time.sleep(1)
                                     start_again_loop()
                                 elif choice_ab == 'b':
@@ -490,7 +494,7 @@ def weapon_loop():
                 elif choice_lw == 'w':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['H7'])
+                    wrap_and_print(cell_values['H7'])
                     time.sleep(1)
                     start_again_loop()
                 else:
@@ -507,7 +511,7 @@ def fence_opening_loop():
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
     '''
-    print(cell_values['E4'])
+    wrap_and_print(cell_values['E4'])
     while True:
         choice_hw = input("Type 'w' or 'h':\n").lower()
         if choice_hw == 'w':
@@ -523,19 +527,19 @@ def fence_opening_loop():
 
 
 def inside_truck_loop():
-    print(cell_values['C6'])
+    wrap_and_print(cell_values['C6'])
     while True:
         choice_wo = input("Type 'o' or 'w':\n").lower()
         if choice_wo == 'o':
             clear_screen()
             time.sleep(1)
-            print(cell_values['D6'])
+            wrap_and_print(cell_values['D6'])
             time.sleep(1)
             start_again_loop()
         elif choice_wo == 'w':
             clear_screen()
             time.sleep(1)
-            print(cell_values['E8'])
+            wrap_and_print(cell_values['E8'])
             while True:
                 choice_wh = input("Type 'w' or 'h':\n").lower()
                 if choice_wh == 'w':
@@ -560,25 +564,25 @@ def river_loop():
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
     '''
-    print(cell_values['B5'])
+    wrap_and_print(cell_values['B5'])
     while True:
         choice_hg = input("Type 'h' or 'g':\n").lower()
         if choice_hg == 'h':
             clear_screen()
             time.sleep(1)
-            print(cell_values['D4'])
+            wrap_and_print(cell_values['D4'])
             while True:
                 choice_st = input("Type 's' or 't':\n").lower()
                 if choice_st == 's':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['D7'])
+                    wrap_and_print(cell_values['D7'])
                     while True:
                         choice_wr = input("Type 'w' or 'r':\n").lower()
                         if choice_wr == 'w':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G1'])
+                            wrap_and_print(cell_values['G1'])
                             while True:
                                 choice_bh = input("Type 'b' or 'h':\n").lower()
                                 if choice_bh == 'b':
@@ -588,7 +592,7 @@ def river_loop():
                                 elif choice_bh == 'h':
                                     clear_screen()
                                     time.sleep(1)
-                                    print(cell_values['G2'])
+                                    wrap_and_print(cell_values['G2'])
                                     time.sleep(1)
                                     start_again_loop()
                                 else:
@@ -596,7 +600,7 @@ def river_loop():
                         elif choice_wr == 'r':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['C7'])
+                            wrap_and_print(cell_values['C7'])
                             time.sleep(1)
                             start_again_loop()
                         else:
@@ -604,7 +608,7 @@ def river_loop():
                 elif choice_st == 't':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['D5'])
+                    wrap_and_print(cell_values['D5'])
                     while True:
                         choice_c = input("Type 'c':\n").lower()
                         if choice_c == 'c':
@@ -618,7 +622,7 @@ def river_loop():
         elif choice_hg == 'g':
             clear_screen()
             time.sleep(1)
-            print(cell_values['C5'])
+            wrap_and_print(cell_values['C5'])
             time.sleep(1)
             start_again_loop()
         else:
@@ -633,41 +637,41 @@ def hide_loop():
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
     '''
-    print(cell_values['F6'])
+    wrap_and_print(cell_values['F6'])
     while True:
         choice_be = input("Type 'b' or 'e':\n").lower()
         if choice_be == 'b':
             clear_screen()
             time.sleep(1)
-            print(cell_values['B8'])
+            wrap_and_print(cell_values['B8'])
         elif choice_be == 'e':
             clear_screen()
             time.sleep(1)
-            print(cell_values['H8'])
+            wrap_and_print(cell_values['H8'])
             while True:
                 choice_wl = input("Type 'l' or 'w':\n").lower()
                 if choice_wl == 'l':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['B2'])
+                    wrap_and_print(cell_values['B2'])
                     while True:
                         choice_sf = input("Type 's' or 'f':\n").lower()
                         if choice_sf == 's':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G5'])
+                            wrap_and_print(cell_values['G5'])
                             time.sleep(1)
                             start_again_loop()
                         elif choice_sf == 'f':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G6'])
+                            wrap_and_print(cell_values['G6'])
                             while True:
                                 choice_ab = input("Type 'a' or 'b':\n").lower()
                                 if choice_ab == 'a':
                                     clear_screen()
                                     time.sleep(1)
-                                    print(cell_values['H1'])
+                                    wrap_and_print(cell_values['H1'])
                                     time.sleep(1)
                                     start_again_loop()
                                 elif choice_ab == 'b':
@@ -681,7 +685,7 @@ def hide_loop():
                 elif choice_wl == 'w':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['H7'])
+                    wrap_and_print(cell_values['H7'])
                     time.sleep(1)
                     start_again_loop()
                 else:
@@ -691,19 +695,19 @@ def hide_loop():
 
 
 def scrap_river_loop():
-    print(cell_values['E7'])
+    wrap_and_print(cell_values['E7'])
     while True:
         choice_rs = input("Type 'r' or 's':\n").lower()
         if choice_rs == 'r':
             clear_screen()
             time.sleep(1)
-            print(cell_values['G6'])
+            wrap_and_print(cell_values['G6'])
             while True:
                 choice_sb = input("Type 's' or 'b':\n").lower()
                 if choice_sb == 's':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['H1'])
+                    wrap_and_print(cell_values['H1'])
                 elif choice_sb == 'b':
                     clear_screen()
                     time.sleep(1)
@@ -726,13 +730,13 @@ def move_on_loop():
     While loops are used to take the user from scene to scene.
     Each loop has an else section for any invalid inputs the user may use.
     '''
-    print(cell_values['F8'])
+    wrap_and_print(cell_values['F8'])
     while True:
         choice_cb = input("Type 'c' or 'b':\n").lower()
         if choice_cb == 'c':
             clear_screen()
             time.sleep(1)
-            print(cell_values['G3'])
+            wrap_and_print(cell_values['G3'])
             while True:
                 choice_yb = input("Type 'y' or 'b':\n").lower()
                 if choice_yb == 'y':
@@ -742,19 +746,19 @@ def move_on_loop():
                 elif choice_yb == 'b':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['G4'])
+                    wrap_and_print(cell_values['G4'])
                     while True:
                         choice_fs = input("Type 's' or 'f':\n").lower()
                         if choice_fs == 'f':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G6'])
+                            wrap_and_print(cell_values['G6'])
                             while True:
                                 choice_ba = input("Type 'a' or 'b':\n").lower()
                                 if choice_ba == 'a':
                                     clear_screen()
                                     time.sleep(1)
-                                    print(cell_values['H1'])
+                                    wrap_and_print(cell_values['H1'])
                                     time.sleep(1)
                                     start_again_loop()
                                 elif choice_ba == 'b':
@@ -767,7 +771,7 @@ def move_on_loop():
                         elif choice_fs == 's':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G5'])
+                            wrap_and_print(cell_values['G5'])
                             time.sleep(1)
                             start_again_loop()
                         else:
@@ -777,25 +781,25 @@ def move_on_loop():
         elif choice_cb == 'b':
             clear_screen()
             time.sleep(1)
-            print(cell_values['G8'])
+            wrap_and_print(cell_values['G8'])
             while True:
                 choice_rm = input("Type 'r' or 'm':\n").lower()
                 if choice_rm == 'r':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['F6'])
+                    wrap_and_print(cell_values['F6'])
                     time.sleep(1)
                     start_again_loop()
                 elif choice_rm == 'm':
                     clear_screen()
                     time.sleep(1)
-                    print(cell_values['G7'])
+                    wrap_and_print(cell_values['G7'])
                     while True:
                         choice_ch = input("Type 'c' or 'h':\n").lower()
                         if choice_ch == 'c':
                             clear_screen()
                             time.sleep(1)
-                            print(cell_values['G5'])
+                            wrap_and_print(cell_values['G5'])
                             time.sleep(1)
                             start_again_loop()
                         elif choice_ch == 'h':
@@ -811,13 +815,13 @@ def move_on_loop():
 
 
 def distract():
-    print(cell_values['H2'])
+    wrap_and_print(cell_values['H2'])
     while True:
         choice_rw = input("Type 'r' or 'w':\n").lower()
         if choice_rw == 'r':
             clear_screen()
             time.sleep(1)
-            print(cell_values['H4'])
+            wrap_and_print(cell_values['H4'])
             print("You have found the path to victory")
             clear_screen()
             congrats()
@@ -825,7 +829,7 @@ def distract():
         elif choice_rw == 'w':
             clear_screen()
             time.sleep(1)
-            print(cell_values['H3'])
+            wrap_and_print(cell_values['H3'])
             time.sleep(1)
             start_again_loop()
         else:
