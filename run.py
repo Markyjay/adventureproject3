@@ -10,6 +10,7 @@ import pyfiglet
 import os
 import colorama
 import json
+import sys
 from colorama import Fore
 from google.oauth2.service_account import Credentials
 colorama.init(autoreset=True)
@@ -424,7 +425,7 @@ def bridge_loop():
                         elif choice_sc == 'c':
                             clear_screen()
                             time.sleep(1)
-                            congrats()
+                            distract()
                         else:
                             print("Invalid input. Try again!")
             else:
@@ -809,7 +810,7 @@ def move_on_loop():
             print("Invalid input. Try again!")
 
 
-def congrats():
+def distract():
     print(cell_values['H2'])
     while True:
         choice_rw = input("Type 'r' or 'w':\n").lower()
@@ -817,10 +818,10 @@ def congrats():
             clear_screen()
             time.sleep(1)
             print(cell_values['H4'])
-            congrats = (pyfiglet.figlet_format("CONGRATULATIONS"))
-            # Adds a pyfiglet font for a victory path
-            print(f"{Fore.CYAN} {title}")
-            print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
+            print("You have found the path to victory")
+            clear_screen()
+            congrats()
+            break            
         elif choice_rw == 'w':
             clear_screen()
             time.sleep(1)
@@ -830,6 +831,12 @@ def congrats():
         else:
             print("Invalid input. Try again!")
 
+
+def congrats():
+    congrats = (pyfiglet.figlet_format("YOU WIN!")) # Adds a pyfiglet font for a victory path
+    print(f"{Fore.CYAN} {congrats}")
+    print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
+    sys.exit()
 
 # Initial text
 
