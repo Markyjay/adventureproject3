@@ -9,23 +9,10 @@ import time
 import pyfiglet
 import os
 import colorama
+import json
 from colorama import Fore
 from google.oauth2.service_account import Credentials
 colorama.init(autoreset=True)
-
-
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('adventure_sheet')
-
-story = SHEET.worksheet('story1')
 
 
 cells = [
@@ -40,8 +27,27 @@ cells = [
 ]
 
 
-cell_values = {cell: story.acell(cell).value for cell in cells}
+def load_adventure_data():
+    try:
+        with open('adventure_data.json', 'r') as json_file:
+            story_data = json.load(json_file)
+        return story_data
+    except FileNotFoundError:
+        print("The adventure data JSON file does not exist. Please create it.")
+        exit(1)
 
+
+story_data = load_adventure_data()
+
+
+def get_cell_value(worksheet_name, cell):
+    if worksheet_name in story_data and cell in story_data[worksheet_name]:
+        return story_data[worksheet_name][cell]
+    else:
+        return None
+
+
+cell_values = {cell: get_cell_value('story1', cell) for cell in cells}
 
 
 def clear_screen():
