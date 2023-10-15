@@ -634,7 +634,7 @@ def hide_loop():
     '''
     print(cell_values['F6'])
     while True:
-        choice_be = ("Type 'b' or 'e':\n").lower()
+        choice_be = input("Type 'b' or 'e':\n").lower()
         if choice_be == 'b':
             clear_screen()
             time.sleep(1)
