@@ -21,6 +21,7 @@
       - [First Time User](#first-time-user)
       - [Returning User](#returning-user)
   - [Features](#features)
+    - [Removed Features](#removed-features)
     - [Existing Features](#existing-features)
     - [Future Features](#future-features)
   - [Data Model](#data-model)
@@ -49,6 +50,7 @@
 ## Objective
 
   The primary objective of creating a "Choose Your Own Adventure" Python game for this project is to showcase the depth of Python knowledge acquired during the course at Code Institute. This project serves as a practical demonstration of the skills and techniques learned, encompassing aspects such as data structures, conditional statements, loops, and interactive user input. By developing an engaging and interactive game, I aim to exhibit my proficiency in Python programming and my ability to apply these skills in a creative and practical manner. Additionally, the game provides a platform to demonstrate problem-solving capabilities and the capacity to design and implement a complex, branching narrative, where user choices significantly influence the course of the story. Ultimately, this project is a testament to my expertise in Python and my capacity to create engaging, interactive experiences through coding.
+
 ---
 
 ## Brief

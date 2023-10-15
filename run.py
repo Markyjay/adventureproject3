@@ -840,7 +840,8 @@ def congrats():
     congrats = (pyfiglet.figlet_format("YOU WIN!"))
     print(f"{Fore.CYAN} {congrats}")
     print("YOU HAVE BRAVED THE ARENA AND WON 10 MILLION!!")
-    sys.exit()
+    start_again_loop()
+
 
 # Initial text
 
