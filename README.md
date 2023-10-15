@@ -116,6 +116,7 @@ It's widely used for a range of purposes, from business process modeling to flow
 ---
 
 ### Python Logic
+![Python Logic](.devcontainer/readme-content/images/pythonlogic.jpg)
 Throughout this program the while loop structure was used to generate the users personal story.
 In Python, a while loop is a control flow structure that allows you to repeatedly execute a block of code as long as a specified condition remains true. 
 Here's the basic structure of a while loop:
@@ -138,6 +139,12 @@ It's essential to ensure that the condition inside a while loop eventually becom
 ### Removed Features
 
 * Use of Google Spreadsheets API to request specific cells containing a scenario for each user input.
+    - This feature was removed due to an un fixable error that occured on some devices and also when running the iamresponsive online application. 
+      - A Google API 429 error is an HTTP status code that indicates that the client, which could be an application has sent too many requests in a given time frame to a Google API service and has exceeded the API's rate limit. This error is also    commonly referred to as "Rate Limit Exceeded."
+  Because I only discovered this error after I had created the program and sent out the deployed link to friends they were reporting this error. I also noticed it later when I used iamresponsive to generate an image of various devices. 
+
+  I replaced this feature by creating a new .JSON file containing the information in the spreadsheet then created a function in the run.py to draw from the new .JSON file.
+ 
 
 ### Existing Features
 
@@ -223,22 +230,21 @@ For the data model of the "Choose Your Own Adventure" project, a text-based appr
 
 In the "Choose Your Own Adventure" project, it's crucial to handle user inputs and responses effectively to ensure a smooth and engaging user experience. Here's an elaboration and improvement of the responses to different user input scenarios:
 
-* Input Incorrect Character When Receiving the "Do You Want to Start Your Adventure?" Prompt:
-
-* Response: If the user enters an invalid character when prompted to start their adventure, the system should provide a clear and informative error message such as "Invalid input. Please enter 'Y' for yes or 'N' for no." 
-  The user is then prompted to re-enter a valid character, ensuring that they understand the available choices.
-  Input Incorrect Character When Making a Choice of Direction:
-
-* Response: When a user inputs an incorrect character while making a choice in the story, the system should respond with a user-friendly error message like "Invalid input. Please select a valid option (e.g., 'A' for left or 'B' for right)." 
-  The user is then encouraged to enter the correct character to proceed.
-  Input Incorrect Type of Characters When Choosing a Name:
-
-* Response: If the user provides an invalid name (e.g., using special characters or numbers), the system should detect this and respond with an error message such as "Invalid input. Please enter a valid name using letters only." 
-  The user is then given another opportunity to enter a valid name.
-  Entering the Incorrect Code Three Times Results in the Holding Cell Remaining Permanently Locked:
-
-* Response: If the user enters the incorrect escape code three times in the escape room scenario, the system should inform the user that the holding cell is now permanently locked. 
-  The system should also ask the user if they would like to try again or if they would like to exit the room. This approach maintains engagement while making it clear that repeated incorrect attempts lead to the cell staying locked.
+* Input Incorrect Character When Receiving the "Start Your Adventure?" Prompt:
+    - Response: If the user enters an invalid character when prompted to start their adventure, the system should provide a clear and informative error message such as "Invalid input. Please enter 'Y' for yes or 'N' for no." 
+      The user is then prompted to re-enter a valid character, ensuring that they understand the available choices.
+  
+* Input Incorrect Character When Making a Choice of Direction:
+    - Response: When a user inputs an incorrect character while making a choice in the story, the system should respond with a user-friendly error message like "Invalid input. Please select a valid option (e.g., 'A' for left or 'B' for right)." 
+      The user is then encouraged to enter the correct character to proceed.
+  
+* Input Incorrect Type of Characters When Choosing a Name:
+    - Response: If the user provides an invalid name (e.g., using special characters or numbers), the system should detect this and respond with an error message such as "Invalid input. Please enter a valid name using letters only." 
+      The user is then given another opportunity to enter a valid name.
+  
+* Entering the Incorrect Code Three Times Results in the Holding Cell Remaining Permanently Locked:
+    - Response: If the user enters the incorrect escape code three times in the escape room scenario, the system should inform the user that the holding cell is now permanently locked. 
+      The system should also ask the user if they would like to try again or if they would like to exit the room. This approach maintains engagement while making it clear that repeated incorrect attempts lead to the cell staying locked.
 
 
 ### PEP8 Testing
@@ -252,8 +258,14 @@ helps enforcing a coding standard, sniffs for code smells and offers simple refa
 
 #### Current
 
-* Python & Sheet | Code 429: Quota exceeded for quota metric 'Read requests' - being new to coding and working with API's i discovered 
-late into my project that each spreadsheet created by a user has a limited number of read requests. 
+A reported issue involves the escape code input, which seems to be entering random values when the user tries to input their escape code. This problem has been reported by a user who is running the program on a mobile device. However, the issue could not be replicated or verified on other devices, making it challenging to identify the root cause.
+
+Possible Solutions:
+
+- Device-specific Investigation: If possible, perform tests on the user's device to determine if there are device-specific factors causing the issue.
+- Logging and Error Handling: Implement more detailed logging and error handling to capture any unexpected behavior or inputs related to the escape code.
+- User Feedback: Encourage the user who reported the issue to provide more details about their device, operating system, and any specific steps that trigger the problem.
+- Cross-Device Testing: If applicable, conduct further testing on different devices to identify any patterns or potential issues.
 
 
 #### Resolved
@@ -271,28 +283,10 @@ late into my project that each spreadsheet created by a user has a limited numbe
     and it worked but it was clear that it was becoming complicated.
            
 
-* Issue: 
+* Issue: I encountered an issue with Google API requests that led to Error 429. This error typically occurs when our application sends too many requests to the Google API in a short amount of time, exceeding the rate limits imposed by Google.
 
-    Explanation: 
-    
-        
-
-* Issue: 
-
-    Explanation:
-
-      
-
-* Issue: 
-
-    Explanation: 
-
-       
-
-* Issue: 
-
-    Explanation:
-
+    Explanation: To address the Error 429 issue, I implemented a workaround. I created a new .JSON file that contains all the information from the Google spreadsheet as a list. Additionally, I introduced a function in the main run.py file that connects this new .JSON file to the application. This approach removed the need for the Google API, and so no encountering of the Error 429. Instead of fetching data from the Google Sheets API each time it's needed, the application relies on the locally stored .JSON file.
+            
 
 ### Validator Testing
 
@@ -312,8 +306,10 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running, and version control. 
 It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as Visual Studio IDE.
 [VSCode](https://code.visualstudio.com/)
+
 ### Google Sheets
 
+The need for this program was removed but i have included it to show case my original intention of using Google API as shown in the Love Sandwiches Sample Project.
 https://docs.google.com/spreadsheets/d/1cJHaqoYuqxiKFB8QcVqwG2K4haJS-2Zf4yPUj7eF3QE/edit#gid=0
 
 [Google Sheets API](https://console.cloud.google.com/marketplace/browse?filter=partner:Google%20Enterprise%20API&project=adventureproject3)
