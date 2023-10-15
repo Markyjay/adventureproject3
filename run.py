@@ -29,7 +29,7 @@ cells = [
 ]
 
 def wrap_and_print(text):
-    for line in textwrap.wrap(text, width=80):
+    for line in textwrap.wrap(text, width=60):
         print(line)
 
 def load_adventure_data():
