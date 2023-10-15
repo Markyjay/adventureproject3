@@ -221,18 +221,22 @@ For the data model of the "Choose Your Own Adventure" project, a text-based appr
 
 In the "Choose Your Own Adventure" project, it's crucial to handle user inputs and responses effectively to ensure a smooth and engaging user experience. Here's an elaboration and improvement of the responses to different user input scenarios:
 
-Input Incorrect Character When Receiving the "Do You Want to Start Your Adventure?" Prompt:
+* Input Incorrect Character When Receiving the "Do You Want to Start Your Adventure?" Prompt:
 
-Response: If the user enters an invalid character when prompted to start their adventure, the system should provide a clear and informative error message such as "Invalid input. Please enter 'Y' for yes or 'N' for no." The user is then prompted to re-enter a valid character, ensuring that they understand the available choices.
-Input Incorrect Character When Making a Choice of Direction:
+* Response: If the user enters an invalid character when prompted to start their adventure, the system should provide a clear and informative error message such as "Invalid input. Please enter 'Y' for yes or 'N' for no." 
+  The user is then prompted to re-enter a valid character, ensuring that they understand the available choices.
+  Input Incorrect Character When Making a Choice of Direction:
 
-Response: When a user inputs an incorrect character while making a choice in the story, the system should respond with a user-friendly error message like "Invalid input. Please select a valid option (e.g., 'A' for left or 'B' for right)." The user is then encouraged to enter the correct character to proceed.
-Input Incorrect Type of Characters When Choosing a Name:
+* Response: When a user inputs an incorrect character while making a choice in the story, the system should respond with a user-friendly error message like "Invalid input. Please select a valid option (e.g., 'A' for left or 'B' for right)." 
+  The user is then encouraged to enter the correct character to proceed.
+  Input Incorrect Type of Characters When Choosing a Name:
 
-Response: If the user provides an invalid name (e.g., using special characters or numbers), the system should detect this and respond with an error message such as "Invalid input. Please enter a valid name using letters only." The user is then given another opportunity to enter a valid name.
-Entering the Incorrect Code Three Times Results in the Holding Cell Remaining Permanently Locked:
+* Response: If the user provides an invalid name (e.g., using special characters or numbers), the system should detect this and respond with an error message such as "Invalid input. Please enter a valid name using letters only." 
+  The user is then given another opportunity to enter a valid name.
+  Entering the Incorrect Code Three Times Results in the Holding Cell Remaining Permanently Locked:
 
-Response: If the user enters the incorrect escape code three times in the escape room scenario, the system should inform the user that the holding cell is now permanently locked. The system should also ask the user if they would like to try again or if they would like to exit the room. This approach maintains engagement while making it clear that repeated incorrect attempts lead to the cell staying locked.
+* Response: If the user enters the incorrect escape code three times in the escape room scenario, the system should inform the user that the holding cell is now permanently locked. 
+  The system should also ask the user if they would like to try again or if they would like to exit the room. This approach maintains engagement while making it clear that repeated incorrect attempts lead to the cell staying locked.
 
 
 ### PEP8 Testing
