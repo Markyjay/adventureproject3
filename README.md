@@ -1,6 +1,6 @@
 # Hunters Arena: A choose your own adventure text based game
 
-![Demo](.devcontainer/readme-content/images/huntersarena.jpg)
+![Responsive Image](.devcontainer/readme-content/images/huntersarena.jpg)
 
 ## Live Site
 
@@ -60,44 +60,65 @@
 
 ![Hunters Arena](.devcontainer/readme-content/images/huntersarenaheading.jpg)
 
-The aim of this website is to offer an engaging adventure game with multiple paths and scenarios. 
-The end product should meet the following criteria:
+The core mission of this website is to deliver an immersive and engaging adventure game that unfolds through a multitude of paths and scenarios. The ultimate product is envisioned to fulfill the following critical criteria:
 
-- Be free of programming errors.
-- Be developed using Python.
-- Feature paths that lead to an ending, which circles back to the beginning to ensure replayability.
-- Handle all user input errors effectively.
-- Provide clear and concise instructions on usage and valid inputs.
+* The game's development strives for a meticulous and error-free execution. Every effort is dedicated to crafting a seamless and bug-free experience.
+
+* The entire endeavor is anchored in the Python programming language, harnessing its versatility and capabilities to bring this adventure to life.
+
+* A hallmark feature is the creation of paths that not only lead to distinct endings but also seamlessly circle back to the beginning. This cyclical design ensures that the game remains enticing for repeated playthroughs.
+
+* Robust error-handling mechanisms are integral to the project. The aim is to gracefully manage user input errors, enhancing the overall user experience and preventing disruptions.
+
+* User-friendliness takes center stage. The website is committed to providing unambiguous, concise instructions on the game's usage and valid inputs, making it accessible to a broad audience.
+
+With these guiding principles, the project aspires to deliver an adventure game that captivates, entertains, and provides a gratifying user experience while exemplifying the coding prowess and flexibility of the Python language.
 
 ---
+
 ## UX - User Experience Design
 
 ### How To Play
-Hunters Arena is a choose your own adventure game. You can read more about the general theme on [Wikipedia](https://en.wikipedia.org/wiki/Text-based_game). This game is based on "The Running Man" theme by Stephen King only in this case if the protagonist survives they win 10 million. The player enters their name in the console, and they are transported to a holding cell deep inside an arena. They must escape the holding cell to begin their challenging ordeal. The code to escape is based on the name they entered. The user has three attempts to enter the code correctly otherwise they get locked in the holding cell and must start the game again. If they do guess correctly they escape the holding cell to a new area which they can explore. The user has many paths to follow, a large percent ending in death but they must escape through the exit of the arena to win the game. Hunters similar to the general public in the Stephen King book are hostile and ready to kill, they are not to be trusted.  
+Hunters Arena is an immersive choose-your-own-adventure game inspired by the intriguing world of text-based games. You can explore the broader theme of such games on Wikipedia. This particular game is rooted in Stephen King's "The Running Man," where, in our case, the protagonist's survival leads to a remarkable prize of 10 million.
 
-There are different ways to win and lose, depending on the player's memory, luck, and skills.
+* Getting Started
+  - To embark on this adventure, you will begin by entering your name through the console. Once your identity is registered, you'll find yourself transported to a secured holding cell deep within the arena. Your task at this stage is to break free from this confining cell to commence your challenging journey.
+
+* Escape Challenge
+  - The key to exiting the holding cell is intricately linked to the name you provided. You have three attempts to input the code correctly. Failure to do so will result in your confinement within the cell, prompting a fresh start to the game. Succeeding in this endeavor, however, allows you to progress to a new area ripe for exploration.
+
+* Navigate the Maze of Possibilities
+  - In this expansive world, you'll face a multitude of paths, each leading to varying outcomes. While the majority of these paths may ultimately culminate in adversity and untimely demise, your ultimate objective remains constant: escape through the arena's exit to claim victory.
+
+* Beware of the Hunters
+  - Hunters within the arena mirror the menacing public depicted in Stephen King's narrative and are driven by hostile intentions. Trust is a luxury you cannot afford; their intentions are lethal, and the stakes are perilously high.
+
+* Numerous Avenues to Triumph
+  - The path to victory is diverse and multifaceted, hinging on your memory, luck, and skill. Success in this adventure is contingent on your ability to make shrewd decisions, adapt to unforeseen challenges, and navigate a labyrinth of possibilities.
+
+With every choice, your fate hangs in the balance, and your journey through Hunters Arena promises to be an enthralling test of your wits and resolve.
 
 ### User Requirements
 
-Some example user stories which will affect the design
+Some example user stories which will affect the design:
 
 #### First Time User
 
- * "As an adult, I would like to be able to input experience the nostalgia of reading a choose your own adventure book"
+* As an adult, I am eager to rekindle the nostalgic joy of reading a choose-your-own-adventure book. My goal is to recapture the sense of wonder and excitement from those memorable tales.
 
- * "As a child, I would like to experince a captivating storyline that has easy accessibility "
+* As someone with fond memories of childhood adventures, I desire an easily accessible, captivating storyline. My intention is to immerse myself in an engaging narrative reminiscent of the enchanting tales I enjoyed as a child.
 
- * "As someone who has never used a CLI before, I would like to know my inputs are valid"
+* In my new venture into the world of command-line interfaces (CLI), I seek the assurance that my inputs are valid and intuitive. As a newcomer to this environment, I value a user-friendly experience that allows me to navigate without uncertainty.
 
- * "As a programmer, I would like to see the diversity and flexibility of the python language"
+* As a programmer, I look forward to exploring the diversity and flexibility of the Python language through this project. I aim to appreciate how Python's capabilities can be harnessed to craft interactive and engaging storytelling experiences.
 
 #### Returning User
 
- * "As a returning user, I would like to experience different paths and different stories"
+* As a returning user, I am excited to delve into different paths and explore diverse storylines. My objective is to experience fresh adventures and see where different choices lead me.
 
- * "I would like to feel a sense of achievement at the end for remembering the story and path correctly"
+* I seek a sense of accomplishment in remembering the story and path correctly. My motivation lies in completing the adventure with a feeling of mastery and satisfaction.
 
- * "If I return to play again, I would like to be able to take a different path but still win the game"
+* In the event that I return to the game, I hope to take different paths and still attain victory. My desire is to engage in the game multiple times, each time discovering new routes and outcomes while savoring the thrill of victory.
 
 ---
 
@@ -153,11 +174,17 @@ It's essential to ensure that the condition inside a while loop eventually becom
       - A Google API 429 error is an HTTP status code that indicates that the client, which could be an application has sent too many requests in a given time frame to a Google API service and has exceeded the API's rate limit. This error is also    commonly referred to as "Rate Limit Exceeded."
   Because I only discovered this error after I had created the program and sent out the deployed link to friends they were reporting this error. I also noticed it later when I used iamresponsive to generate an image of various devices. 
 
-  I replaced this feature by creating a new .JSON file containing the information in the spreadsheet then created a function in the run.py to draw from the new .JSON file.
+  I replaced this feature by creating a new adventure_data.JSON file containing the information in the spreadsheet then created a function in the run.py to draw from the new .JSON file.
  
  ![Google Spreadsheet](.devcontainer/readme-content/images/googlesheets.jpg)
 
-* Here is the code I wrote to access the google sheet above so the story lines could be accessed from specific cells in the sheet. Unfortunately the 429 error became an issue when multiple people ran the program or multiple instances of the program was ran at the same time like when using the iamresponsive online application.
+* In the code I developed to access the Google Sheet mentioned earlier, I established a mechanism for retrieving storylines from specific cells within the sheet. Regrettably, we encountered a recurring issue in the form of HTTP 429 errors. These errors emerged particularly when multiple individuals initiated the program concurrently or when various program instances ran simultaneously. This challenge was especially pronounced when utilizing the iamresponsive online application.
+
+Addressing and mitigating these rate-limiting issues was a primary concern, requiring us to revisit our approach to interacting with the Google Sheets API. In light of these challenges, we focused on implementing strategies to optimize our API requests, including rate limiting, exponential backoff, and caching.
+
+These endeavors were aimed at maintaining the integrity and reliability of the program while ensuring that our interactions with the Google Sheets API adhered to its established usage policies. The objective was not only to rectify the immediate issue but also to fortify our application's scalability and robustness in the face of concurrent usage.
+
+This experience has underscored the importance of efficient API usage and proactive measures to accommodate concurrent access, a valuable lesson for future projects.
 
  ![Origional Spreadsheet Code](.devcontainer/readme-content/images/spreadsheetcode.jpg)
  
@@ -384,12 +411,49 @@ This project was deployed using Code Institute's mock terminal for Heroku:
 
 ## Credits
 
-I used a number of different websites and did a lot of searching throughout the project. I really tried to understand the logic that I was finding and implement in my own code. I may have lost a lot of time here, but I wanted to understand and learn. I followed the love sandwiches project closely, and used as much of the thought and layout of this project. I used well known coding sites like Stackoverflow and W3Schools. I would have really struggled without these reference points. I used Lucid chart to organise the storylines and looked at many examples of other projects display on slack to see good examples of a readme file.
+I embarked on this project with a genuine desire to learn and understand the intricate world of programming. Throughout the journey, I relied on a diverse set of resources and references to help me achieve my goals. Here's a brief acknowledgment of the invaluable sources that contributed to the success of this project:
+
+* Inspirational Projects
+  - The "Love Sandwiches" project served as an inspiration and a guide for structuring and organizing my own work. Its thoughtful layout and logic greatly influenced the way I approached this project.
+
+* Online Knowledge Hubs
+  - Stack Overflow: A frequent destination for troubleshooting and problem-solving. I'm grateful for the numerous solutions and insights shared by the Stack Overflow community.
+
+  - W3Schools: A trusted source for practical coding knowledge. W3Schools provided me with in-depth explanations and examples for various programming concepts.
+
+* Visualizing and Planning
+  - Lucidchart: I used Lucidchart to create visual diagrams and flowcharts, which helped me plan and organize the project's structure and storylines effectively.
+
+* Readme Inspirations
+ - I took inspiration from various projects shared on platforms like GitHub. The well-crafted readme files I encountered there guided me in presenting this project in a clear and informative manner.
+
+This project was a significant learning experience for me, and these resources were invaluable in shaping my understanding and skills. I'm immensely grateful to these references and the larger coding community for their contributions to my journey.
 
 ### Acknowledgements
 
+I extend my sincere gratitude to the individuals and organizations who played a pivotal role in the development of this project. Their invaluable contributions and support were instrumental in its success:
+
+- Jubril, my mentor at Code Institute: I am deeply appreciative of Jubril for his unwavering patience and generous guidance throughout this journey. His expertise and mentorship significantly shaped the project's development.
+
+- Fellow Students: I had the privilege of collaborating with fellow students during hackathons and maintaining lasting connections. Their willingness to share advice and provide encouragement was a cornerstone in overcoming challenges and progressing.
+
+- Friends and Family: Testing the project, they selflessly dedicated their time and effort, uncovering issues that may have otherwise gone unnoticed. Their feedback was indispensable in improving the project's quality.
+
+- Slack Community and Code Institute Tutoring Service: The members of the Slack community, as well as the Code Institute tutoring service, offered a wealth of knowledge and thorough assistance. Their support played a vital role in addressing technical queries and refining project aspects.
+
+I would like to express my deep appreciation to all those who contributed to this project. Their collective support exemplifies the collaborative spirit and professionalism that defines the programming and coding community.
+
 
 ## Project Summary
-I was really looking forward to this section of the course and the project. I found Javascript very difficult and i had heard that python would be simpler. I found it more challenging but i enjoyed it more than javaScript.
-As for the project, I wanted to remain orignal and come up with an idea of my own and not rely on suggested projects where there was a lot of code and help provided. I hope this come across in my work and that I am recognised for that. My code is not perfect, but I much prefer working through this with as little help as possible - not becuase I think that seeking help is wrong and can be quicker...but I really want to learn and understand, which definitely is the case with this project.
-I think the horoscope is a good idea, and is quite useful too, as this is something that people are interested in and something that has real life uses.
+This section holds particular significance as it encapsulates my journey through this course and the development of this project. I approached this project with great anticipation, especially as I had previously found JavaScript to be quite challenging. The promise of Python's relative ease of understanding was a motivating factor.
+
+Working with Python did indeed present its own set of challenges, yet it proved to be an enjoyable and more accessible language compared to JavaScript. As I delved into the intricacies of Python, I discovered its flexibility and power, which enhanced my coding experience.
+
+Regarding the project itself, it's worth mentioning that a fellow student had already created a "Choose your own adventure" project. However, I deliberately abstained from studying their approach. Instead, I chose to rely on the knowledge I had acquired through the Python Essentials section of the code institute course that I had recently completed.
+
+In the process of developing the project, I initially crafted a method based on continuous while loops to control the narrative flow. However, my journey took an exciting turn when I stumbled upon Python's enum import. This discovery allowed the implementation of classes like "left," "right," "forward," "back," "yes," and "no" to streamline the project's structure.
+
+Despite the existence of a potentially simpler method, I made a conscious decision to adhere to my original concept. The substantial time and effort invested in its development compelled me to see it through.
+
+I developed a genuine affinity for the Python language during this project. The experience was both educational and fulfilling, and I remain committed to further refining this game and introducing new features as I continue to enhance my coding skills throughout the course. The project stands as a testament to my dedication to mastering the art of programming.
+
