@@ -4,16 +4,13 @@ those willing to take on a harrowing challenge.
 Author: Mark Young
 '''
 
-import gspread
 import time
 import pyfiglet
 import os
 import colorama
 import json
 import textwrap
-import sys
 from colorama import Fore
-from google.oauth2.service_account import Credentials
 colorama.init(autoreset=True)
 
 
@@ -28,9 +25,11 @@ cells = [
     'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8'
 ]
 
+
 def wrap_and_print(text):
     for line in textwrap.wrap(text, width=60):
         print(line)
+
 
 def load_adventure_data():
     try:
@@ -96,6 +95,7 @@ def start_adventure():
     Begins the adventure story to the point of escape.
     The user has three attempts to correctly identify code.
     '''
+    clear_screen()
     print("\nWelcome to your adventure {}!".format(player_name))
     time.sleep(1)
     wrap_and_print(cell_values['A1'])

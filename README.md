@@ -1,4 +1,4 @@
-# Hunters Arena: A choose your own adventure
+# Hunters Arena: A choose your own adventure text based game
 
 ![Demo](.devcontainer/readme-content/images/huntersarena.jpg)
 
@@ -44,6 +44,7 @@
     - [Heroku](#heroku)
   - [Credits](#credits)
      - [Acknowledgements](#acknowledgements)
+  - [Project Summary](#project-summary)
 
 ---
 
@@ -56,6 +57,8 @@
 ## Brief
 
 ### **H**unters **A**rena
+
+![Hunters Arena](.devcontainer/readme-content/images/huntersarenaheading.jpg)
 
 The aim of this website is to offer an engaging adventure game with multiple paths and scenarios. 
 The end product should meet the following criteria:
@@ -70,7 +73,7 @@ The end product should meet the following criteria:
 ## UX - User Experience Design
 
 ### How To Play
-Hunters Arena is a choose your own adventure game. You can read more about the general theme on [Wikipedia](https://en.wikipedia.org/wiki/Text-based_game). This game is based on "The Running Man" theme by Stephen King only in this case if the protagonist survives they win 10 million. The player enters their name in the console, and they are transported to a holding cell deep inside an arena. They must escape the holding cell to begin their ordeal. The code is based on the name they entered previously. The user has three attempts to enter the code correctly otherwise they get locked in the holding cell and must stat the game again. If they do guess correctly they escape the cell to a new area which they can explore. The user has many paths to follow, a large percent ending in death but they must escape through the exit of the arena to win the game. Hunters similar to the general public in stephen king book are hostile and ready to kill, they are not to be trusted.  
+Hunters Arena is a choose your own adventure game. You can read more about the general theme on [Wikipedia](https://en.wikipedia.org/wiki/Text-based_game). This game is based on "The Running Man" theme by Stephen King only in this case if the protagonist survives they win 10 million. The player enters their name in the console, and they are transported to a holding cell deep inside an arena. They must escape the holding cell to begin their challenging ordeal. The code to escape is based on the name they entered. The user has three attempts to enter the code correctly otherwise they get locked in the holding cell and must start the game again. If they do guess correctly they escape the holding cell to a new area which they can explore. The user has many paths to follow, a large percent ending in death but they must escape through the exit of the arena to win the game. Hunters similar to the general public in the Stephen King book are hostile and ready to kill, they are not to be trusted.  
 
 There are different ways to win and lose, depending on the player's memory, luck, and skills.
 
@@ -104,6 +107,7 @@ I'm planning to create a "Choose Your Own Adventure" game, inspired by the books
 
 The overall story has a similar theme to Stephen Kings novel "The Running Man".
 
+![Running Man](.devcontainer/readme-content/images/runningman.jpg)
 
 ### Story Flow
 
@@ -111,12 +115,14 @@ To create and maintain the story path lines the online application Lucid chart w
 Lucidchart is an online diagramming and visual communication tool that allows users to create various types of diagrams and visual representations. 
 It's widely used for a range of purposes, from business process modeling to flowcharts, wireframes, network diagrams, org charts, and more.
 
+To organise the story lines I named each paragraph after the event in the scenario then indicated what cell in the spreadsheet it is located. (This method worked perfectly until i discovered the google API read request error)
+
 ![Lucid Chart](.devcontainer/readme-content/images/lucidchart.jpg)
 
 ---
 
 ### Python Logic
-![Python Logic](.devcontainer/readme-content/images/pythonlogic.jpg)
+
 Throughout this program the while loop structure was used to generate the users personal story.
 In Python, a while loop is a control flow structure that allows you to repeatedly execute a block of code as long as a specified condition remains true. 
 Here's the basic structure of a while loop:
@@ -133,6 +139,10 @@ The condition becomes False before the loop starts (e.g., the condition is initi
 The condition becomes False during the loop's execution. This can occur if some code within the loop modifies variables or conditions in a way that eventually makes the original condition False.
 It's essential to ensure that the condition inside a while loop eventually becomes False to prevent an infinite loop. Infinite loops can consume all available CPU resources and crash the program or system.
 
+
+![Python Logic](.devcontainer/readme-content/images/pythonlogic.jpg)
+
+
 ---
 ## Features
 
@@ -145,6 +155,12 @@ It's essential to ensure that the condition inside a while loop eventually becom
 
   I replaced this feature by creating a new .JSON file containing the information in the spreadsheet then created a function in the run.py to draw from the new .JSON file.
  
+ ![Google Spreadsheet](.devcontainer/readme-content/images/googlesheets.jpg)
+
+* Here is the code I wrote to access the google sheet above so the story lines could be accessed from specific cells in the sheet. Unfortunately the 429 error became an issue when multiple people ran the program or multiple instances of the program was ran at the same time like when using the iamresponsive online application.
+
+ ![Origional Spreadsheet Code](.devcontainer/readme-content/images/spreadsheetcode.jpg)
+ 
 
 ### Existing Features
 
@@ -154,31 +170,19 @@ It's essential to ensure that the condition inside a while loop eventually becom
 
 
 
-* The program asks the user to input a valid name. If the name is not valid the program returns - "Invalid name. Please enter only letters for your name".
+* The program asks the user to input a valid name. 
+  - If the name is not valid the program returns - "Invalid name. Please enter only letters for your name".
+  - If the name has anything other than letters the program returns - "Invalid name. Please enter only letters for your name".
+  - If the name has all valid letters the programs begins the quest.
+
   
   ![Valid Name Input](.devcontainer/readme-content/images/lettersonly2.jpg)
 
 
 
-* Once a valid name has been input to the console the user is introduced to the first scenario where they must escape a holding cell of an arena.
-  If the wrong code is inserted 3 times then the user is locked in and asked whether they wish to try again.
+  * This escape code scenario was concocted to use python functions such as 
 
-  ![Wrong Code](.devcontainer/readme-content/images/wrongcode.jpg)
-
-
-
-* Once a valid code is input to the console the program returns Congratulations you have escaped the holding cell.
-
-  ![Escape Code](.devcontainer/readme-content/images/escapecode.jpg)
-
-  To exit the room remember your name 
-    1. Last letter. 
-    2. Amount of letters. 
-    3. Second letter after alphabetically ordered 
-    4. Input this and you will step into the arena.
-
-
-  This escape code scenario was concocted to use python functions such as 
+    ![Escape Code](.devcontainer/readme-content/images/escapecode.jpg)
 
     1. name = name.lower(): Converts the input name to lowercase. This ensures that the case (uppercase or lowercase) of the name doesn't affect the resulting escape code.
 
@@ -197,6 +201,22 @@ It's essential to ensure that the condition inside a while loop eventually becom
 
     The final escape_code is a unique code that depends on the user's input name, making it specific to each user. 
     This code is then used within the program, allowing users to enter it to progress in the adventure game, as seen in the start_adventure function.
+
+    ![Wrong Code](.devcontainer/readme-content/images/wrongcode.jpg)
+
+  * Once a valid name has been input to the console the user is introduced to the first scenario where they must escape a holding cell of an arena.
+    If the wrong code is inserted 3 times then the user is locked in and asked whether they wish to try again.
+       - In this instance I use my own name as an example: Mark
+          By following the instructions given the code will be
+          1. Last letter = k
+          2. Number of letters = 4
+          3. Second letter after alphabetically ordered = k
+          4. Enter correct code k4k to excape holding cell.
+
+          - Anything other than the correct values returns an incorrect code warning and a chance to retry.
+          - The user gets three tries before they must start again.
+   * Once a valid code is input to the console the program returns Congratulations you have escaped the holding cell.
+
 
 ### Future Features
 
@@ -273,6 +293,7 @@ Possible Solutions:
 * Issue: Invalid input return repetition
 
     Explanation: There were two instances of the same variable, so when one instance was called the code returned invalid.
+    
     Solution: Change the variable name of one. There are three scenarios where the user had a choice to go for a weapon 
     or to hide so using the letters wh or hw in the variable choice_hw a third option needed to be created and i chose choice_nh.
 
@@ -285,8 +306,11 @@ Possible Solutions:
 
 * Issue: I encountered an issue with Google API requests that led to Error 429. This error typically occurs when our application sends too many requests to the Google API in a short amount of time, exceeding the rate limits imposed by Google.
 
-    Explanation: To address the Error 429 issue, I implemented a workaround. I created a new .JSON file that contains all the information from the Google spreadsheet as a list. Additionally, I introduced a function in the main run.py file that connects this new .JSON file to the application. This approach removed the need for the Google API, and so no encountering of the Error 429. Instead of fetching data from the Google Sheets API each time it's needed, the application relies on the locally stored .JSON file.
-            
+    Explanation: A 429 error typically indicates that you've exceeded the rate limit for accessing the Google Sheets API. Google enforces rate limits to prevent abuse and ensure fair usage of their services.
+
+    Attempted Solution: Implement Rate Limiting: To prevent your application from making too many requests in a short period, you can implement rate limiting in your code. This involves adding delays between requests to ensure you stay within the allowed rate limits.
+
+    Solution: To address the Error 429 issue, I implemented a workaround. I created a new .JSON file that contains all the information from the Google spreadsheet as a list. Additionally, I introduced a function in the main run.py file that connects this new .JSON file to the application. This approach removed the need for the Google API, and so no encountering of the Error 429. Instead of fetching data from the Google Sheets API each time it's needed, the application relies on the locally stored .JSON file. The program ran much faster and had no re-occurring errors.      
 
 ### Validator Testing
 
@@ -309,8 +333,10 @@ It aims to provide just the tools a developer needs for a quick code-build-debug
 
 ### Google Sheets
 
-The need for this program was removed but i have included it to show case my original intention of using Google API as shown in the Love Sandwiches Sample Project.
-https://docs.google.com/spreadsheets/d/1cJHaqoYuqxiKFB8QcVqwG2K4haJS-2Zf4yPUj7eF3QE/edit#gid=0
+(Removed feature but left in to show case intention)
+
+The need for this program was removed but I have included it to show case my original intention of using Google API as shown in the Love Sandwiches Sample Project.
+[Adventure Project 3](https://docs.google.com/spreadsheets/d/1cJHaqoYuqxiKFB8QcVqwG2K4haJS-2Zf4yPUj7eF3QE/edit#gid=0)
 
 [Google Sheets API](https://console.cloud.google.com/marketplace/browse?filter=partner:Google%20Enterprise%20API&project=adventureproject3)
 The Google Sheets API is a RESTful interface that lets you read and modify a spreadsheet's data. The most common uses of this API include the following tasks:
@@ -358,3 +384,12 @@ This project was deployed using Code Institute's mock terminal for Heroku:
 
 ## Credits
 
+I used a number of different websites and did a lot of searching throughout the project. I really tried to understand the logic that I was finding and implement in my own code. I may have lost a lot of time here, but I wanted to understand and learn. I followed the love sandwiches project closely, and used as much of the thought and layout of this project. I used well known coding sites like Stackoverflow and W3Schools. I would have really struggled without these reference points. I used Lucid chart to organise the storylines and looked at many examples of other projects display on slack to see good examples of a readme file.
+
+### Acknowledgements
+
+
+## Project Summary
+I was really looking forward to this section of the course and the project. I found Javascript very difficult and i had heard that python would be simpler. I found it more challenging but i enjoyed it more than javaScript.
+As for the project, I wanted to remain orignal and come up with an idea of my own and not rely on suggested projects where there was a lot of code and help provided. I hope this come across in my work and that I am recognised for that. My code is not perfect, but I much prefer working through this with as little help as possible - not becuase I think that seeking help is wrong and can be quicker...but I really want to learn and understand, which definitely is the case with this project.
+I think the horoscope is a good idea, and is quite useful too, as this is something that people are interested in and something that has real life uses.
